@@ -1,0 +1,193 @@
+footer {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-around;
+	/*Positioning stuff*/
+	position: absolute;
+	/*Box model stuff*/
+	width: 100%;
+	height: 200px;
+	margin: 0;
+	margin-left: -1rem;
+	margin-top: 2rem;
+	background-color: var(--secondary-color);
+	/*Typography stuff*/
+	color: var(--text-color-light);
+}
+
+footer .website {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+footer>*>h2 {
+	/*Box model stuff*/
+	margin-bottom: -0.25rem;
+	padding: 0 0.5rem;
+	border-bottom: solid 1px white;
+	border-left: solid 1px white;
+	/*Typography stuff*/
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+
+footer .website ul {
+	/*Box model stuff*/
+	margin: 0;
+	padding: 0;
+	/*Miscellaneous*/
+	list-style: none;
+}
+
+footer .website ul li {
+	/*Box model stuff*/
+	margin: 0.5rem 0;
+}
+
+footer .website ul li::before {
+	/*Display stuff*/
+	content: "";
+	/*Box model stuff*/
+	border-right: solid 1px white;
+}
+
+footer .website ul li a {
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 500;
+	text-decoration: none;
+	color: var(--text-color-light);
+	/*Manipulations stuff*/
+	transition: all 0.3s ease-in-out;
+}
+
+footer .website ul li a:hover {
+	/*Typography stuff*/
+	color: var(--quinary-color);
+	/*Manipulations stuff*/
+	transform: scale(1.25);
+}
+
+footer .social {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+footer .social h2 {
+	/*Box model stuff*/
+	margin-bottom: -0.25rem;
+	/*Typography stuff*/
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+footer .social ul {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 2rem 0;
+	/*Miscellaneous*/
+	gap: 1.5rem;
+	list-style: none;
+}
+
+footer .social ul li {
+	/*Box model stuff*/
+	margin: 0.5rem 0;
+}
+
+footer .social ul li a {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 500;
+	text-decoration: none;
+	color: var(--text-color-light);
+	/*Manipulations stuff*/
+	transition: all 0.3s ease-in-out;
+}
+
+footer .social ul li a:hover {
+	/*Typography stuff*/
+	color: var(--quinary-color);
+	/*Manipulations stuff*/
+	transform: scale(1.25);
+}
+
+footer .social ul li a img {
+	/*Box model stuff*/
+	width: 2rem;
+	height: 2rem;
+}
+
+/* We make the last child a bit bigger */
+footer .social ul li:last-child a img {
+	/*Box model stuff*/
+	width: 3rem;
+}
+
+footer .newsletter {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+footer .newsletter h2 {
+	/*Box model stuff*/
+	margin-bottom: -0.25rem;
+	/*Typography stuff*/
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+footer .newsletter p {
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+footer .newsletter .newsletter__input {
+	/*Box model stuff*/
+	margin: 1rem 0.5rem 0 0.5rem;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+footer .newsletter .newsletter__input:focus {
+	/*Box model stuff*/
+	outline: blue auto 1px;
+}
+
+footer .newsletter p.privacy__policy_link {
+	/*Typography stuff*/
+	font-size: 0.5rem;
+	font-weight: 300;
+}
+
+footer .newsletter p.privacy__policy_link a {
+	/*Typography stuff*/
+	color: var(--text-color-light);
+}

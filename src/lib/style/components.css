@@ -1,0 +1,79 @@
+.main__button {
+	text-decoration: none;
+	background-color: var(--secondary-color-light);
+	color: var(--text-color-light);
+	border: none;
+	border-radius: 0.5rem;
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--default-transition);
+}
+
+.main__button:hover {
+	background-color: var(--secondary-color-extra_light);
+	color: var(--text-color-light);
+}
+
+.main__button__light {
+	text-decoration: none;
+	background-color: var(--secondary-color);
+	color: var(--text-color-light);
+	border: none;
+	border-radius: 0.5rem;
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--default-transition);
+}
+.main__button__light:hover {
+	background-color: var(--secondary-color-light);
+	color: var(--text-color-light);
+}
+
+.alert__button {
+	text-decoration: none;
+	background-color: var(--alert-primary);
+	color: var(--text-color-light);
+	border: none;
+	border-radius: 0.5rem;
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--default-transition);
+}
+
+.alert__button:hover {
+	background-color: var(--alert-primary-light);
+	color: var(--text-color-light);
+}
+
+.delete__button {
+	text-decoration: none;
+	background-color: var(--danger-primary);
+	color: var(--text-color-light);
+	border: none;
+	border-radius: 0.5rem;
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--default-transition);
+}
+
+.delete__button:hover {
+	background-color: var(--danger-primary-strong);
+	color: var(--text-color-light);
+}
+
+:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

@@ -1,0 +1,175 @@
+header {
+	/*Display stuff*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/*Box model stuff*/
+	width: 100%;
+	margin: 0 0 0 -1rem;
+	padding: 1rem;
+	background-color: var(--primary-color);
+	/*Miscellaneous*/
+	gap: 1rem;
+}
+
+header a {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: flex-end;
+	/*Box model stuff*/
+	padding: 5px 7.5px;
+	margin: 5px;
+	border-radius: 10px;
+	/*Typography stuff*/
+	text-decoration: none;
+	color: var(--text-color-dark);
+	/*Manipulations stuff*/
+	transition: var(--default-transition);
+}
+
+header nav a:hover {
+	/*Box model stuff*/
+	color: var(--secondary-color);
+	/*Typography stuff*/
+	border-radius: 10rem;
+}
+
+header a.active {
+	/*Box model stuff*/
+	background-color: white;
+	/*Typography stuff*/
+	color: var(--text-color-dark);
+	border-radius: 10rem;
+}
+
+header a img {
+	/*Box model stuff*/
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+}
+
+header nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header nav ul {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	border-radius: 10rem;
+	background-color: var(--primary-color_contrast_shadow);
+	/*Miscellaneous*/
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+header nav ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*Miscellaneous*/
+	list-style: none;
+}
+
+header nav ul li a i {
+	/*Box model stuff*/
+	margin-right: 0.75rem;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+header .login_up__section {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	/*Miscellaneous*/
+	gap: 1rem;
+}
+
+header .logged_in__section {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Miscellaneous*/
+	gap: 1rem;
+}
+
+header .logged_in__section .mini__profile__container {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	padding: 0;
+}
+
+header .logged_in__section .mini__profile__container img {
+	/*Box model stuff*/
+	width: 75px;
+	height: 75px;
+	border-radius: 100%;
+}
+
+header .logged_in__section .mini__profile__container p {
+	/*Box model stuff*/
+	margin: 0;
+	padding: 0;
+}
+
+header .logged_in__section button .signup {
+	/*Box model stuff*/
+	padding: 0;
+}
+
+header .login_up__section a button,
+header .logged_in__section a button {
+	/*Box model stuff*/
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 10rem;
+	/*Typography stuff*/
+	font-size: 1rem;
+	font-weight: 500;
+	/*Manipulations stuff*/
+	transition: var(--default-transition);
+	/*Miscellaneous*/
+	cursor: pointer;
+}
+
+header .login_up__section a button.login {
+	/*Box model stuff*/
+	background-color: black;
+	/*Typography stuff*/
+	color: white;
+}
+
+header .login_up__section a button.login:hover {
+	transform: scale(1.1);
+}
+
+header .login_up__section a button.signup,
+header .logged_in__section a button.signup {
+	/*Box model stuff*/
+	background-color: var(--secondary-color);
+	/*Typography stuff*/
+	color: var(--text-color-light);
+}
+
+header .login_up__section a button.signup:hover,
+header .logged_in__section a button.signup:hover {
+	transform: scale(1.1);
+}

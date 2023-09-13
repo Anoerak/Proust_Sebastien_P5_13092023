@@ -1,0 +1,64 @@
+h1 {
+	font-size: 40px;
+	margin-top: 50px;
+	color: #333;
+}
+
+h2 {
+	font-size: 30px;
+	margin-top: 30px;
+	color: #666;
+}
+
+h3 {
+	font-size: 20px;
+	margin-top: 20px;
+	color: #666;
+}
+
+h4 {
+	font-size: 18px;
+	margin-top: 20px;
+	color: #666;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.5;
+	margin: 20px 0;
+	color: #555;
+}
+
+ul {
+	margin: 20px 0;
+	padding: 0;
+}
+
+li {
+	margin-left: 2rem;
+	font-size: 18px;
+	line-height: 1.5;
+	margin-bottom: 10px;
+	color: #555;
+}
+
+a {
+	color: #1c1e8f;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #434ce7;
+}
+
+a:active {
+	color: #7f84f2;
+}
+
+a:visited {
+	color: #1c1e8f;
+}
+
+a:link {
+	color: #1c1e8f;
+}
