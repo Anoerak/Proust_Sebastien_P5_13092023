@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Sawarabi+Gothic&display=swap');
+@import './font.css';
 @import './components.css';
 
 @import '../../../templates/components/header/header.css';
@@ -25,6 +27,7 @@
 	--primary-color: #f7fbff;
 	--primary-color_contrast: #1f1a19;
 	--primary-color_contrast_shadow: #f5f5f5;
+	--primary-footer-color: #f4f4f6;
 
 	--secondary-color: #44a0e7;
 	--secondary-color-light: #6ec6ff;
@@ -47,6 +50,9 @@
 
 	--text-color-light: #ffffff;
 	--text-color-dark: #000000;
+	--text-color-dark-light: #4a4a4a;
+	--text-color-dark-gray: #707070;
+	--text-color-light-gray: #bababa;
 	--text-color-main-color: #696daf;
 
 	--default-transition: all 0.3s ease-in-out;
@@ -58,19 +64,10 @@ html {
 
 body {
 	min-height: calc(100vh - 304px);
-	margin: 0 1rem;
+	margin: 0;
 	padding: 0;
-	gap: 1rem;
 }
 
 body main {
 	min-height: calc(100vh - 445px);
-	/* margin-top: -1.25rem; */
-}
-
-body main div.hero__container {
-	background-color: var(--primary-color);
-	width: 100%;
-	margin: 0 0rem 0 -1rem;
-	padding: 1rem;
 }

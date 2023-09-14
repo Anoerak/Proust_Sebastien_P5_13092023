@@ -1,64 +1,59 @@
+/* Fonts */
+
 h1 {
-	font-size: 40px;
-	margin-top: 50px;
-	color: #333;
+	font-size: 2rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Fira Code', sans-serif;
 }
 
 h2 {
-	font-size: 30px;
-	margin-top: 30px;
-	color: #666;
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Fira Code', sans-serif;
 }
 
 h3 {
-	font-size: 20px;
-	margin-top: 20px;
-	color: #666;
+	font-size: 1.25rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Fira Code', sans-serif;
 }
 
 h4 {
-	font-size: 18px;
-	margin-top: 20px;
-	color: #666;
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Fira Code', sans-serif;
+}
+
+h5 {
+	font-size: .75rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Fira Code', sans-serif;
+}
+
+h6 {
+	font-size: .5rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Fira Code', sans-serif;
 }
 
 p {
-	font-size: 18px;
-	line-height: 1.5;
-	margin: 20px 0;
-	color: #555;
-}
-
-ul {
-	margin: 20px 0;
-	padding: 0;
-}
-
-li {
-	margin-left: 2rem;
-	font-size: 18px;
-	line-height: 1.5;
-	margin-bottom: 10px;
-	color: #555;
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Rajdhani', sans-serif;
 }
 
 a {
-	color: #1c1e8f;
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--text-color-dark);
+	font-family: 'Rajdhani', sans-serif;
 	text-decoration: none;
-}
-
-a:hover {
-	color: #434ce7;
-}
-
-a:active {
-	color: #7f84f2;
-}
-
-a:visited {
-	color: #1c1e8f;
-}
-
-a:link {
-	color: #1c1e8f;
+	cursor: pointer;
 }

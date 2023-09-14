@@ -1,0 +1,250 @@
+section.login__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	padding-top: 5rem;
+	background-image: url('../../src/lib/imgs/wallpaper.webp');
+}
+
+section.login__container .login__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 640px;
+	height: 610px;
+	margin: 0;
+	padding: 0;
+	background-color: rgb(252, 251, 254);
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+	border-radius: 34px;
+	backdrop-filter: blur(10px);
+	transition: all 0.3s ease-in-out;
+}
+
+section.login__container .login__form:hover {
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .4);
+	backdrop-filter: blur(15px);
+	transform: scale(1.01);
+}
+
+section.login__container .login__form form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	padding-top: 2rem;
+}
+
+section.login__container .login__form form label {
+	display: none;
+}
+
+section.login__container .login__form form .username input[type="username"],
+section.login__container .login__form form .password input[type="password"] {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	padding-left: 1rem;
+	border: solid 0.5px var(--text-color-light-gray);
+	background-color: transparent;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+
+section.login__container .login__form form input[type="username"] {
+	border-radius: 10px 10px 0 0;
+}
+
+section.login__container .login__form form input[type="password"] {
+	border-radius: 0 0 10px 10px;
+}
+
+section.login__container .login__form form .username,
+section.login__container .login__form form .password {
+	position: relative;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+section.login__container .login__form form .username span,
+section.login__container .login__form form .password span {
+	color: var(--text-color-light-gray);
+	font-size: 1rem;
+	position: absolute;
+	top: 1rem;
+	left: 0.5rem;
+	transition: all 0.3s ease-in-out;
+	z-index: -1;
+}
+
+section.login__container .login__form form .username input:focus,
+section.login__container .login__form form .password input:focus {
+	outline: none;
+	border: solid 0.5px var(--secondary-color);
+}
+
+section.login__container .login__form form .username input:focus+span,
+section.login__container .login__form form .password input:focus+span,
+section.login__container .login__form form .username input:valid+span,
+section.login__container .login__form form .password input:valid+span {
+	color: var(--secondary-color);
+	transform: translateY(-0.9rem) scale(0.5) translateX(-2.5rem);
+}
+
+section.login__container div.login__form form input[type="submit"] {
+	margin-top: 2rem;
+	font-size: 1.25rem;
+}
+
+/* Animation */
+@keyframes imageSwitch {
+	0% {
+		background-image: url('../../src/lib/imgs/geek.webp');
+	}
+
+	25% {
+		background-image: url('../../src/lib/imgs/zen.webp');
+	}
+
+	50% {
+		background-image: url('../../src/lib/imgs/idea.webp');
+	}
+
+	75% {
+		background-image: url('../../src/lib/imgs/geek.webp');
+	}
+
+	100% {
+		background-image: url('../../src/lib/imgs/call.webp');
+	}
+}
+
+.container {
+	position: relative;
+	width: 344px;
+	height: 310px;
+}
+
+.icon {
+	position: absolute;
+	background-position: center;
+	background-size: cover;
+}
+
+.icon__central {
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+	animation: imageSwitch 15s infinite linear;
+}
+
+/* We place the .icon around the .icon_central with some random size but never bigger than icon_central */
+.icon:nth-child(1) {
+	width: 80px;
+	height: 80px;
+	top: 30%;
+	left: 10%;
+	background-image: url('../../src/lib/imgs/technos/html5.webp');
+}
+
+.icon:nth-child(2) {
+	width: 50px;
+	height: 50px;
+	top: 75%;
+	right: 15%;
+	background-image: url('../../src/lib/imgs/technos/css3.webp');
+}
+
+.icon:nth-child(3) {
+	width: 20px;
+	height: 20px;
+	top: 40%;
+	right: 20%;
+	background-image: url('../../src/lib/imgs/technos/js.webp');
+}
+
+.icon:nth-child(4) {
+	width: 50px;
+	height: 25px;
+	top: 10%;
+	left: 50%;
+	background-image: url('../../src/lib/imgs/technos/php.webp');
+}
+
+.icon:nth-child(5) {
+	width: 60px;
+	height: 60px;
+	top: 80%;
+	left: 40%;
+	background-image: url('../../src/lib/imgs/technos/react.webp');
+}
+
+.icon:nth-child(6) {
+	width: 60px;
+	height: 60px;
+	top: 25%;
+	left: 5%;
+	background-image: url('../../src/lib/imgs/technos/vue.webp');
+}
+
+.icon:nth-child(7) {
+	width: 50px;
+	height: 50px;
+	top: 5%;
+	left: 25%;
+	background-image: url('../../src/lib/imgs/technos/symfony.webp');
+}
+
+.icon:nth-child(8) {
+	width: 70px;
+	height: 70px;
+	top: 75%;
+	left: 5%;
+	background-image: url('../../src/lib/imgs/technos/figma.webp');
+}
+
+.icon:nth-child(9) {
+	width: 60px;
+	height: 60px;
+	top: 10%;
+	right: 5%;
+	background-image: url('../../src/lib/imgs/technos/docker.webp');
+}
+
+.icon:nth-child(10) {
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	right: 0;
+	background-image: url('../../src/lib/imgs/technos/node.webp');
+}
+
+.icon:nth-child(11) {
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	left: 0%;
+	background-image: url('../../src/lib/imgs/technos/mysql.webp');
+}

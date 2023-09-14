@@ -1,20 +1,23 @@
 .main__button {
-	text-decoration: none;
-	background-color: var(--secondary-color-light);
-	color: var(--text-color-light);
-	border: none;
-	border-radius: 0.5rem;
-	margin: 0 0.5rem;
 	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 10rem;
+	/*Typography stuff*/
 	font-size: 1rem;
 	font-weight: 500;
-	cursor: pointer;
+	/*Manipulations stuff*/
 	transition: var(--default-transition);
+	/*Miscellaneous*/
+	cursor: pointer;
+	text-decoration: none;
+	/*Box model stuff*/
+	background-color: var(--secondary-color);
+	/*Typography stuff*/
+	color: var(--text-color-light);
 }
 
 .main__button:hover {
-	background-color: var(--secondary-color-extra_light);
-	color: var(--text-color-light);
+	transform: scale(1.1);
 }
 
 .main__button__light {
@@ -30,6 +33,7 @@
 	cursor: pointer;
 	transition: var(--default-transition);
 }
+
 .main__button__light:hover {
 	background-color: var(--secondary-color-light);
 	color: var(--text-color-light);
