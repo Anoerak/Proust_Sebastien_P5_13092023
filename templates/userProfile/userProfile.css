@@ -1,136 +1,337 @@
+/* #Region Top */
 section.user__profile__container {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+	margin: 0;
+	min-height: 100vh;
+	width: 100%;
+}
+
+section.user__profile__container .top {
+	height: 4rem;
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	background-color: var(--text-color-dark-gray);
 }
 
 section.user__profile__container h1 {
+	color: var(--primary-color_contrast);
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin: 0;
+	padding: 1rem 0;
+	text-align: start;
+	width: 75%;
+	border-bottom: solid 0.5px var(--text-color-light-gray);
+}
+
+/* #endregion */
+
+section.user__profile__container .main__container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 75%;
+	padding-top: 3rem;
+}
+
+/* #Region Section */
+/* #Region Left */
+section.user__profile__container .main__container .left__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 25%;
+	min-height: 100%;
+}
+
+section.user__profile__container .main__container .left__container form {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	gap: 1rem;
+}
+
+section.user__profile__container .main__container .left__container form div {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+section.user__profile__container .main__container .left__container form .user__profile__container__content__avatar {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+section.user__profile__container .main__container .left__container form .user__profile__container__content__avatar img {
+	border-radius: 50%;
+	height: 5rem;
+	width: 5rem;
+	position: relative;
+}
+
+section.user__profile__container .main__container .left__container form .user__profile__container__content__avatar input {
+	position: absolute;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	opacity: 0;
+}
+
+section.user__profile__container .main__container .left__container form .user__profile__container__content__avatar input:hover {
+	cursor: pointer;
+}
+
+section.user__profile__container .main__container .left__container form .input__container {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+section.user__profile__container .main__container .left__container form .input__container label {
+	display: none;
+}
+
+section.user__profile__container .main__container .left__container form .input__container input {
+	align-items: center;
+	background-color: transparent;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+	height: 20px;
+	justify-content: center;
+	line-height: 1.5rem;
+	margin: 0;
+	padding-left: 1rem;
+	width: 100%;
+}
+
+section.user__profile__container .main__container .left__container form .input__container span {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 1rem;
+	color: var(--text-color-light-gray);
+	font-size: 1rem;
+	left: 0.5rem;
+	transition: all 0.3s ease-in-out;
+	z-index: -1;
+}
+
+section.user__profile__container .main__container .left__container form .input__container span.username {
+	color: var(--text-color-dark);
+}
+
+section.user__profile__container .main__container .left__container form .input__container span.email {
+	font-size: 0.75rem;
+}
+
+section.user__profile__container .main__container .left__container form .input__container input:valid+span,
+section.user__profile__container .main__container .left__container form .input__container input:focus+span {
+	color: var(--secondary-color);
+	transform: scale(0.5) translateY(-1.5rem) translateX(-6.5rem);
+}
+
+section.user__profile__container .main__container .left__container form .action__container input {
+	background-color: var(--primary-color_contrast);
+}
+
+/* #endregion */
+
+/* #Region Right */
+section.user__profile__container .main__container .right__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 70%;
+	min-height: 100%;
+}
+
+section.user__profile__container .main__container .right__container h2 {
+	color: var(--primary-color_contrast);
 	font-size: 1.5rem;
 	font-weight: 600;
-	margin-bottom: 10px;
-}
-
-section.user__profile__container .user__profile__container__content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
 	margin: 0;
-	padding: 0;
-	background-color: var(--primary-color);
-	border-radius: 0.5rem;
-	box-shadow: 0 0 0.5rem 0.5rem var(--primary-color);
+	padding: 0 0 0.5rem 0;
+	text-align: start;
+	width: 100%;
 }
 
-section.user__profile__container form {
+section.user__profile__container .main__container .right__container p {
+	color: var(--text-color-dark);
+	font-size: 1rem;
+	font-weight: 400;
+	margin: 0;
+	padding: 0 0 2rem 0;
+	text-align: start;
+	width: 100%;
+	line-height: 1.5rem;
+}
+
+section.user__profile__container .main__container .right__container form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: 1rem;
+	overflow: hidden;
+}
+
+section.user__profile__container .main__container .right__container form .input__container {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-start;
-	gap: 1rem;
-	width: 50%;
-	margin: 0;
-	padding: 0;
+	width: 320px;
+	height: 125px;
+	background-image: linear-gradient(120deg, #fff 45%, #f5f5f5);
+	border: 1px solid hsla(240, 6%, 83%, .63);
+	border-radius: 11px;
+	background-position: 50%;
+	background-size: cover;
+	filter: drop-shadow(0 10px 10px rgba(76, 76, 109, .07059));
+	padding: 1rem;
 }
 
-section.user__profile__container form label {
-	font-weight: bold;
-	margin-right: 1rem;
-}
-
-section.user__profile__container form input {
-	width: 50%;
-	padding: 0.5rem;
-	border: 0.1rem solid var(--quaternary-color);
-	border-radius: 0.5rem;
-}
-
-section.user__profile__container form input:focus {
+section.user__profile__container .main__container .right__container form .input__container input {
+	align-items: center;
+	background-color: transparent;
+	border-radius: 5px;
+	border: none;
 	outline: none;
-	border: 0.1rem solid var(--primary-color);
-}
-
-section.user__profile__container .user__profile__container__content__top {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	gap: 1rem;
-}
-
-section.user__profile__container .user__profile__container__content__avatar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	font-size: 1rem;
+	height: 40px;
 	justify-content: center;
-	width: 80%;
-	gap: 1rem;
-}
-section.user__profile__container .user__profile__container__content__top img {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-}
-
-.user__profile__container__username,
-.user__profile__container__firstname,
-.user__profile__container__lastname,
-.user__profile__container__email,
-.user__profile__container__birthday,
-.user__profile__container__password {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	width: 60%;
-	gap: 1rem;
-}
-
-section.user__profile__container .action__container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+	line-height: 1.5rem;
+	margin: 0 0 0 -1rem;
+	padding-left: 1rem;
 	width: 100%;
-	gap: 10rem;
-	margin-top: 3rem;
 }
 
-section.user__profile__container .update__user,
-section.user__profile__container .delete__user {
-	width: 20%;
-}
-section.user__profile__container .delete__user {
-	text-align: center;
+section.user__profile__container .main__container .right__container form .input__container span {
+	position: absolute;
+	width: 100%;
+	top: 40px;
+	left: 1rem;
+	color: var(--text-color-light-gray);
+	font-size: 1rem;
+	transition: all 0.3s ease-in-out;
+	z-index: -1;
+	height: 40px;
 }
 
-section.user__profile__container .user__profile__container__content__bottom {
+section.user__profile__container .main__container .right__container form .input__container span.username {
+	color: var(--text-color-dark);
+}
+
+section.user__profile__container .main__container .right__container form .input__container span.email {
+	font-size: 0.75rem;
+}
+
+section.user__profile__container .main__container .right__container form .input__container input:valid+span,
+section.user__profile__container .main__container .right__container form .input__container input:focus+span {
+	color: var(--secondary-color);
+	transform: scale(0.5) translateY(-1.5rem) translateX(-11rem);
+}
+
+section.user__profile__container .main__container .right__container form .action__container {
+	margin-top: 2rem;
+	padding: 1rem;
+	width: 100%;
+	height: auto;
+}
+
+section.user__profile__container .main__container .right__container form .action__container input {
+	border-radius: 7px;
+}
+
+section.user__profile__container .main__container .right__container form .action__container input.update__user {
+	background-color: var(--primary-color_contrast);
+}
+
+section.user__profile__container .main__container .right__container form .action__container input.delete_user {
+	background-color: var(--danger-primary);
+}
+
+/* #endregion */
+/* #endregion */
+
+/* #Region Newsletter */
+section.user__profile__container .main__container .right__container .user__profile__container__content__bottom {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
+	align-items: flex-start;
 	width: 100%;
-	margin-top: 5rem;
+	min-height: 100%;
+	margin-top: 2rem;
 }
 
-section.user__profile__container .user__profile__container__content__newsletter {
+section.user__profile__container .main__container .right__container .user__profile__container__content__bottom h2 {
+	color: var(--primary-color_contrast);
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: 0;
+	padding: 0 0 0.5rem 0;
+	text-align: start;
+	width: 100%;
+}
+
+section.user__profile__container .main__container .right__container .user__profile__container__content__bottom p {
+	color: var(--text-color-dark);
+	font-size: 1rem;
+	font-weight: 400;
+	margin: 0;
+	padding: 0 0 2rem 0;
+	text-align: start;
+	width: 100%;
+	line-height: 1.5rem;
+}
+
+section.user__profile__container .main__container .right__container .user__profile__container__content__bottom .user__profile__container__content__newsletter {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
+	align-items: flex-start;
 	width: 100%;
-	gap: 1rem;
+	min-height: 100%;
 }
 
-section.user__profile__container .newsletter__container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 50%;
-	gap: 1rem;
+section.user__profile__container .main__container .right__container .user__profile__container__content__bottom .user__profile__container__content__newsletter .newsletter__container form {
+	padding: 1rem;
+	margin-top: -1rem;
 }
+
+section.user__profile__container .main__container .right__container .user__profile__container__content__bottom .user__profile__container__content__newsletter .main__button {
+	background-color: var(--primary-color_contrast);
+}
+
+/* #endregion */
+
+/* #Region Bottom */
+section.user__profile__container .bottom {
+	height: 3rem;
+	width: 100%;
+}
+
+/* #endregion */

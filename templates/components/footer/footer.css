@@ -176,6 +176,12 @@ footer .newsletter .newsletter__input {
 	font-weight: 500;
 }
 
+
+footer .newsletter .subscribe__newsletter {
+	/*Box model stuff*/
+	background-color: var(--primary-color_contrast);
+}
+
 footer .newsletter .newsletter__input:focus {
 	/*Box model stuff*/
 	outline: blue auto 1px;

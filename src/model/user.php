@@ -112,10 +112,13 @@ class User extends dbConnect
 		// Create the user in the privilege table
 		$sql = parent::executeRequest("INSERT INTO privilege (user_id) VALUES (?)", array($id));
 
+		// Create the user in the newsletter table
+		$sql = parent::executeRequest("INSERT INTO newsletter (email) VALUES (?)", array($email));
+
 		// We check if the user has been created
 		if ($sql) {
 			header('Refresh: 3; URL=./index.php?page=login');
-			echo 'Your account has been created. You will be redirected to the login page in 3 seconds.';
+			throw new Exception('Your account has been created. You will be redirected to the login page in 3 seconds.', 200);
 		} else {
 			throw new Exception('An error occurred while creating your account.');
 		}
@@ -234,6 +237,12 @@ class User extends dbConnect
 		/* #EndRegion */
 
 		/* #Region We update the user in the credentials table */
+		if (!empty($values['username'])) {
+			$sql = parent::executeRequest("UPDATE credentials SET username = ? WHERE user_id = ?", array($values['username'], $values['id']));
+			if (!$sql) {
+				throw new Exception('An error occurred while updating your account.');
+			}
+		}
 		if (!empty($values['newPassword'])) {
 			$sql = parent::executeRequest("UPDATE credentials SET password = ? WHERE user_id = ?", array($values['newPassword'], $values['id']));
 			if (!$sql) {
@@ -252,7 +261,7 @@ class User extends dbConnect
 		/* #Region We check if the user has been updated */
 		if ($sql) {
 			header('Refresh: 3; URL=./index.php?page=userProfile&action=get&option=user&id=' . $values['id'] . '');
-			echo 'Your account has been updated. You will be redirected to the profile page in 3 seconds.';
+			throw new Exception('Your account has been updated. You will be redirected to the profile page in 3 seconds.', 200);
 		} else {
 			throw new Exception('An error occurred while updating your account.');
 		}
@@ -269,7 +278,7 @@ class User extends dbConnect
 		if ($sql) {
 			session_destroy();
 			header('Refresh: 3; URL=./index.php');
-			echo 'The user has been deleted. You will be redirected to the home page in 3 seconds.';
+			throw new Exception('The user has been deleted. You will be redirected to the home page in 3 seconds.', 200);
 		} else {
 			throw new Exception('An error occurred while deleting the user.');
 		}
