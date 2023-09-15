@@ -1,9 +1,12 @@
 <?php
 
+require_once __DIR__ . '/../../config/config.local.php';
+
 $curl = curl_init();
 
+
 curl_setopt_array($curl, [
-	CURLOPT_URL => "https://ipgeolocation.abstractapi.com/v1/?api_key=4ba9b4893e09403e9e8921bcf41e1b57",
+	CURLOPT_URL => "https://ipgeolocation.abstractapi.com/v1/?api_key=" . IPGEOLOC_API_KEY,
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_ENCODING => "",
 	CURLOPT_MAXREDIRS => 10,
@@ -25,7 +28,7 @@ $err = curl_error($curl);
 // We now can request weatherapi.com with the city we got from the previous request
 
 curl_setopt_array($curl, [
-	CURLOPT_URL => "http://api.weatherapi.com/v1/forecast.json?key=c437ed519974472bb72115743232002&q=$city&days=7&aqi=no&alerts=no",
+	CURLOPT_URL => "http://api.weatherapi.com/v1/forecast.json?key=" . WEATHERAPI_API_KEY .  "&q=$city&days=7&aqi=no&alerts=no",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_ENCODING => "",
 	CURLOPT_MAXREDIRS => 10,
@@ -54,7 +57,6 @@ $todayLow = $today->temp_c;
 $forecast = $weatherApiResponse->forecast;
 
 ?>
-
 
 <section class="about__container">
 	<div class="top"></div>

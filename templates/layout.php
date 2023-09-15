@@ -16,10 +16,10 @@
 	<?php
 	if ($title === "IamSeb - About") {
 		echo '
-			<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>;
+			<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 			<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/ModifiersPlugin.min.js"></script>
-			<script defer src="../templates/about/about.js"></script>
+			<script defer src="../templates/about/about.js" type="module"></script>
 			<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />
 		';
 	} ?>

@@ -1,3 +1,7 @@
+import { MAPBOX_API_KEY } from '../../config/config.local.js';
+// Uncomment this line to use the production API key:
+// import { MAPBOX_API_KEY } from '../../config/config.js';
+
 var slideDelay = 5;
 var slideDuration = 1;
 
@@ -47,7 +51,9 @@ function wrapPartial(min, max) {
 	};
 }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW5vZXJhayIsImEiOiJjbG1qcGk0OXEwNm14MnFwd294NW9sdWJuIn0.a21ZsaKB9cuY8HG4kmBbBQ';
+console.log(MAPBOX_API_KEY);
+
+mapboxgl.accessToken = MAPBOX_API_KEY;
 var map = new mapboxgl.Map({
 	container: 'map',
 	style: 'mapbox://styles/mapbox/streets-v12',

@@ -17,7 +17,8 @@ header {
 
 header .logo,
 header .nav,
-header .login_up__section {
+header .login_up__section,
+header .logged_in__section {
 	width: 33%;
 }
 
@@ -116,9 +117,9 @@ header .login_up__section {
 header .logged_in__section {
 	/*Display stuff*/
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 	/*Miscellaneous*/
 	gap: 1rem;
 }
@@ -135,8 +136,8 @@ header .logged_in__section .mini__profile__container {
 
 header .logged_in__section .mini__profile__container img {
 	/*Box model stuff*/
-	width: 75px;
-	height: 75px;
+	width: 40px;
+	height: 40px;
 	border-radius: 100%;
 }
 
