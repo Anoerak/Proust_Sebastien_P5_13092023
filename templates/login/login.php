@@ -1,9 +1,6 @@
 <section class="login__container">
 
 	<div class="login__form">
-		<!--<video src="../../src/lib/videos/signin_video.mp4" width="344" height="310.5" autoplay="true" playsinline=""
-			loop="" x-webkit-airplay="deny"
-			title="Animation showing different users' Memojis surrounded by the icons of the apps the user personally uses most"></video>-->
 		<div class="container">
 			<span class="icon__central">
 			</span>
@@ -33,5 +30,10 @@
 
 			<input type="submit" value="Login" class="main__button">
 		</form>
+		<div class="bottom">
+			<p>Don't have an account?
+				<a href="index.php?page=signup">Sign Up ></a>
+			</p>
+		</div>
 	</div>
 </section>

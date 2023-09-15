@@ -1,37 +1,433 @@
 /* Main heading */
-section.about__container h1 {
-	text-align: center;
-	font-size: 40px;
-	margin-top: 50px;
-	color: #333;
+section.about__container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 0;
+	min-height: 100vh;
+	width: 100%;
 }
 
-/* Sub-headings */
-section.about__container h2 {
-	font-size: 30px;
-	margin-top: 30px;
-	color: #666;
+section.about__container .top {
+	height: 4rem;
+	width: 100%;
+	background-color: var(--text-color-dark-gray);
 }
 
-/* Paragraphs */
-section.about__container p {
-	font-size: 18px;
-	line-height: 1.5;
-	margin: 20px 0;
-	color: #555;
+/* #Region Main */
+section.about__container main {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 0;
+	padding: 2rem 0;
+	width: calc(100% - 4rem);
+	min-height: calc(100vh - 12rem);
+	gap: 2rem;
 }
 
-/* Unordered list */
-section.about__container ul {
-	margin: 20px 0;
+/* #Region First row */
+section.about__container main .first_row {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+	gap: 2rem;
+}
+
+section.about__container main .first_row .music iframe {
+	width: 100%;
+	max-width: 660px;
+	height: 472px;
+	overflow: hidden;
+	background: transparent;
+	border-radius: 1rem;
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+}
+
+section.about__container main .first_row .map {
+	width: 450px;
+	height: 220px;
+	border-radius: 1rem;
+	overflow: hidden;
+	background: transparent;
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+}
+
+section.about__container main .first_row .map .mapboxgl-ctrl-bottom-left,
+section.about__container main .first_row .map .mapboxgl-ctrl-bottom-right {
+	display: none;
+}
+
+/* #Region Infos */
+section.about__container main .first_row .infos {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 1rem;
+	height: 440px;
+	width: calc(100% - 450px - 4rem - 320px);
+	border-radius: 1rem;
+	overflow: hidden;
+	background: transparent;
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+}
+
+
+
+section.about__container main .first_row .infos .social {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+section.about__container main .first_row .infos .social ul {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 2rem 0;
+	/*Miscellaneous*/
+	gap: 1.5rem;
+	list-style: none;
+}
+
+section.about__container main .first_row .infos .social ul li {
+	/*Box model stuff*/
+	margin: 0.5rem 0;
+}
+
+section.about__container main .first_row .infos .social ul li a {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 500;
+	text-decoration: none;
+	color: var(--text-color-dark);
+	/*Manipulations stuff*/
+	transition: all 0.3s ease-in-out;
+}
+
+section.about__container main .first_row .infos .social ul li a:hover {
+	/*Typography stuff*/
+	color: var(--quinary-color);
+	/*Manipulations stuff*/
+	transform: scale(1.25);
+}
+
+section.about__container main .first_row .infos .social ul li a img {
+	/*Box model stuff*/
+	width: 4rem;
+	height: 4rem;
+}
+
+/* We make the last child a bit bigger */
+section.about__container main .first_row .infos .social ul li:last-child a img {
+	/*Box model stuff*/
+	width: 4rem;
+	height: 4rem;
+}
+
+/* #endregion */
+
+/* #endregion */
+
+/* #Region Second row */
+section.about__container main .second_row {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+	gap: 2rem;
+}
+
+/* #Region Photos */
+section.about__container main .second_row .photos {
+	border-radius: 1rem;
+	overflow: hidden;
+	background: transparent;
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+	height: 330px;
+	width: 300px;
+	position: relative;
+}
+
+section.about__container main .second_row .photos .slide {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+/* #endregion */
+
+/* #Region Education */
+section.about__container main .second_row .education {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 1rem;
+	width: 418px;
+	height: 568px;
+	border-radius: 1rem;
+	margin-top: -264px;
+	overflow-y: scroll;
+	overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	background: transparent;
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+}
+
+section.about__container main .second_row .education::-webkit-scrollbar {
+	display: none;
+}
+
+section.about__container main .second_row .education .title {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	margin-top: 8rem;
+}
+
+section.about__container main .second_row .education .title img {
+	/*Box model stuff*/
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+section.about__container main .second_row .education .title h2 {
+	/*Typography stuff*/
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+section.about__container main .second_row .education .education__subcontainer {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+
+section.about__container main .second_row .education .education__subcontainer .education__subcontainer__item {
+	/*Display stuff*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/*Box model stuff*/
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+section.about__container main .second_row .education .education__subcontainer .education__subcontainer__item h3 {
+	/*Typography stuff*/
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1rem;
+}
+
+section.about__container main .second_row .education .education__subcontainer .education__subcontainer__item p {
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 400;
+	line-height: 0.75rem;
+}
+
+section.about__container main .second_row .education .education__subcontainer .education__subcontainer__item span {
+	/*Typography stuff*/
+	font-size: 0.75rem;
+	font-weight: 400;
+	font-style: italic;
+}
+
+/* #endregion */
+
+/* #Region Weather */
+section.about__container main .second_row .weather {
+	align-items: center;
+	border-radius: 1rem;
+	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
+	display: flex;
+	flex-direction: column;
+	height: 300px;
+	justify-content: flex-start;
+	margin: 0;
+	padding: 1rem;
+	width: calc(100% - 450px - 4rem - 320px);
+	background: linear-gradient(180deg, rgb(33, 62, 118) 0%, rgb(58, 90, 148) 33%, rgb(80, 114, 172) 66%, rgb(96, 131, 187) 100%);
+}
+
+section.about__container main .second_row .weather .top,
+section.about__container main .second_row .weather .top .left,
+section.about__container main .second_row .weather .top .right,
+section.about__container main .second_row .weather .bottom,
+section.about__container main .second_row .weather .bottom .day {
+	background-color: transparent;
+	color: var(--text-color-light);
+}
+
+section.about__container main .second_row .weather .top,
+section.about__container main .second_row .weather .bottom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 50%;
+	border-radius: 1rem;
+}
+
+section.about__container main .second_row .weather .top .left,
+section.about__container main .second_row .weather .top .right {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+	height: 100%;
+}
+
+section.about__container main .second_row .weather .top .left {
+	align-items: flex-start;
+}
+
+section.about__container main .second_row .weather .top .left .left__city {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+section.about__container main .second_row .weather .top .left .left__today__temp {
+	font-size: 5rem;
+}
+
+section.about__container main .second_row .weather .top .right {
+	align-items: flex-end;
+}
+
+section.about__container main .second_row .weather .top .right .right__today__weather__icon img {
+	width: 3rem;
+	height: 3rem;
+}
+
+section.about__container main .second_row .weather .top .right .right__today__weather {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+section.about__container main .second_row .weather .top .right .right__today__max__min {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+section.about__container main .second_row .weather .top .right .right__today__max__min .right__max,
+section.about__container main .second_row .weather .top .right .right__today__max__min .right__min {
+	margin-right: 0.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+section.about__container main .second_row .weather .bottom .bottom__hour {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	margin-bottom: -2rem;
+}
+
+section.about__container main .second_row .weather .bottom .bottom__hour .bottom__hour__time {
+	font-size: 1.25rem;
+	font-weight: 500;
+	color: rgb(195, 208, 227);
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: -1rem;
+	left: calc(50% - 1rem);
+}
+
+section.about__container main .second_row .weather .bottom .bottom__hour .bottom__hour__icon img {
+	width: 4rem;
+	height: 4rem;
+	margin: 0;
 	padding: 0;
 }
 
-/* List items */
-section.about__container li {
-	margin-left: 2rem;
-	font-size: 18px;
-	line-height: 1.5;
-	margin-bottom: 10px;
-	color: #555;
+section.about__container main .second_row .weather .bottom .bottom__hour .bottom__hour__temp {
+	font-size: 1.25rem;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: -0.75rem;
+	left: calc(50% - 1.5rem);
 }
+
+/* #endregion */
+/* #endregion */
+
+/* #endregion */
+
+/* #Region Bottom */
+section.about__container .bottom {
+	height: 3rem;
+	width: 100%;
+
+}
+
+/* #endregion */

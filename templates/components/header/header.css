@@ -1,5 +1,5 @@
 header {
-	height: 5rem;
+	height: 4rem;
 	backdrop-filter: blur(15px) saturate(86%);
 	background-color: hsla(0, 0%, 100%, .2);
 	/*Display stuff*/
@@ -46,7 +46,7 @@ header a {
 
 header nav a:hover {
 	/*Box model stuff*/
-	background-color: hsla(0, 0%, 100%, .2);
+	background-color: hsla(0, 0%, 100%, 0.39);
 	/*Typography stuff*/
 	border-radius: 10rem;
 }
@@ -61,8 +61,8 @@ header a.active {
 
 header a img {
 	/*Box model stuff*/
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
 	border-radius: 100%;
 }
 

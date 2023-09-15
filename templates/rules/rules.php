@@ -1,5 +1,6 @@
 <section class="blog__rules">
-	<h1>"The Rules of the Bro Code: A Guide to Blogging with Style and Swagger"</h1>
+	<div class="top"></div>
+	<h1>The Rules of the Bro Code: A Guide to Blogging with Style and Swagger</h1>
 	<ol>
 		<li>Keep it bro-tastic: All comments, posts, and interactions on this blog must be approved by the ultimate bro
 			himself.</li>
@@ -24,11 +25,12 @@
 			posts.</li>
 
 	</ol>
-	<p>So, are you ready to bring the bro-tastic and legend-ary vibes to Barney's blog? Let's do this!</p>
+	<p>So, are you ready to bring the bro-tastic and legend-ary vibes to this blog? Let's do this!</p>
 	<p class="disclaimer">
 		<em>Disclaimer:</em> Any similarity between the content of this blog and real-life events is purely
 		coincidental, and for entertainment purposes only. Attempting to replicate any legendary moves and techniques
 		described in this blog may result in emotional or physical harm, so proceed with caution and at your own risk.
 		But let's be real, if you're not having a good time, you're not doing it right!
 	</p>
+	<div class="bottom"></div>
 </section>

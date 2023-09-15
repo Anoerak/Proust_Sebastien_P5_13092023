@@ -1,32 +1,24 @@
-.blog__rules {
-	width: 80%;
-	margin: 0 auto;
-	text-align: center;
-	font-family: Arial, sans-serif;
-}
-
-.blog__rules h1 {
-	font-size: 36px;
-	margin-bottom: 20px;
-}
-
-.blog__rules ol {
-	list-style-type: decimal;
-	margin-left: 40px;
-	font-size: 24px;
-	text-align: left;
+section.blog__rules {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	justify-content: space-between;
+	margin: auto;
+	min-height: 100vh;
+	width: 80%;
 }
 
-.blog__rules p {
-	font-size: 24px;
-	margin-top: 20px;
+section.blog__rules .top {
+	height: 4rem;
+	width: 125%;
+	background-color: var(--text-color-dark-gray);
 }
 
-.blog__rules p.disclaimer {
-	font-size: 18px;
-	margin-top: 20px;
-	color: #999;
+section.blog__rules h1 {
+	text-align: center;
+}
+
+section.blog__rules .bottom {
+	height: 2rem;
+	background-color: transparent;
 }

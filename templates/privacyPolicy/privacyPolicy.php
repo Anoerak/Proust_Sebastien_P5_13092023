@@ -1,5 +1,6 @@
 <article class="privacy__policy__container">
-	<h1>Privacy Policy for the Legendary Blog of Barney Stinson</h1>
+	<div class="top"></div>
+	<h1>Welcome to my Portfolio</h1>
 	<p>Listen up, legends-in-the-making! We take your privacy seriously here at Barney Stinson's blog, but that doesn't
 		mean we can't have a little fun with it. So sit back, grab a drink, and read on for the deets on how we handle
 		your personal information.</p>

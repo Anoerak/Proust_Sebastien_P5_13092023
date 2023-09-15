@@ -1,3 +1,21 @@
+article.privacy__policy__container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	min-height: 100vh;
+	width: 80%;
+	padding-bottom: 2rem;
+}
+
+article.privacy__policy__container .top {
+	height: 4rem;
+	width: 130%;
+	overflow: visible;
+	background-color: var(--text-color-dark-gray);
+}
+
 article.privacy__policy__container h1 {
 	text-align: center;
 	font-size: 40px;

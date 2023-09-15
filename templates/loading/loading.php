@@ -1,9 +1,11 @@
-<section class="loading__container loading loading_message" role="message">
-	<h4 class="loading-heading">Message</h4>
-	<p>Here is an awesome message for you...</p>
-	<br>
-	<p>Check this out!!</p>
-	<hr>
-	<h5 class="mb-0">Message : </h5>
-	<span class="message"><?= $datas ?></span>
+<section class="loading__container">
+	<div class="top">
+	</div>
+	<div class="loading loading_message" role="message">
+		<img src="../../src/lib/imgs/message.webp" alt="envelope">
+		<h4 class="loading-heading">Message</h4>
+		<p>Here is an awesome message for you...</p>
+		<p class="message"><?= $datas ?></p>
+	</div>
+	<div class="bottom"></div>
 </section>

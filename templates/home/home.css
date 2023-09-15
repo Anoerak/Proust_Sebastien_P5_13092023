@@ -91,6 +91,19 @@
 	border-radius: 50%;
 }
 
+.hero__container .profile__card__main__container .resume__logo {
+	/*Display stuff*/
+	display: block;
+	/*Positioning stuff*/
+	position: absolute;
+	right: 1rem;
+	bottom: 2.5rem;
+}
+
+.hero__container .profile__card__main__container .resume__logo img {
+	width: 50px;
+}
+
 .hero__container .profile__card__main__container .static__avatar .profile__image__container img {
 	/*Display stuff*/
 	display: block;

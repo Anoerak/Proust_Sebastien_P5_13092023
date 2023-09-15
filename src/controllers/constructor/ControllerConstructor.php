@@ -13,7 +13,7 @@ class ControllerConstructor extends ModelConstructorController
 {
 	private $view;
 	private $datas;
-	private $title = 'My Awesome Blog !! - ';
+	private $title = 'IamSeb - ';
 	private $templatePath;
 
 	private function setTitleAndTemplatePath($titleAppendix, $templatePathAppendix)

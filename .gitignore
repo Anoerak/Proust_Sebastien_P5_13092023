@@ -1,0 +1,7 @@
+# We add all the regualar paths/files to the .gitignore
+.env
+node_modules
+coverage
+dist
+vendor
+.vscode

@@ -36,15 +36,19 @@
  						</g>
  					</g>
  				</svg>
- 				<div class="static__avatar">
+ 				<a href="index.php?page=about" class="static__avatar">
  					<div class="profile__image__container">
  						<img alt="Your profile Image" src="../../src/lib/imgs/profile_picture.webp">
  					</div>
- 				</div>
+ 				</a>
+ 				<a href="../../public/files/Resume_Seb_classic.pdf" class="resume__logo" target=”_blank”
+ 					rel="noopener noreferrer">
+ 					<img src="../../src/lib/imgs/cv.png" alt="Drawinf of a resume" />
+ 				</a>
  			</div>
  			<div class="user__info" aria-hidden="true">
  				<div class="user-name">Sébastien</div>
- 				<a href="mailto:seb@iamseb.dev" class="email">seb@iamseb.dev</a>
+ 				<a href="index.php?page=contact" class="email">seb@iamseb.dev</a>
  			</div>
  			<div class="plan__name" aria-hidden="true">Open to Work</div>
  		</div>

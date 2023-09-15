@@ -11,9 +11,13 @@
 	<div class="social">
 		<h2>Follow me</h2>
 		<ul>
-			<li><a href="https://www.facebook.com/"><img src="../../../src/lib/imgs/github.webp" alt="Letter F in white on blue background" />Github</a></li>
-			<li><a href="https://www.instagram.com/"><img src="../../../src/lib/imgs/gitlab.webp" alt="White minimal camera logo on Reddish rainbow background" />GitLab</a></li>
-			<li><a href="https://www.twitter.com/"><img src="../../../src/lib/imgs/Linkedin_logo.webp" alt="White X letter on dirty black background" />Linkedin</a></li>
+			<li><a href="https://github.com/Anoerak" target=”_blank”><img src="../../../src/lib/imgs/github.webp"
+						alt="Letter F in white on blue background" />Github</a></li>
+			<li><a href="https://gitlab.com/Anoerak" target=”_blank”><img src="../../../src/lib/imgs/gitlab.webp"
+						alt="White minimal camera logo on Reddish rainbow background" />GitLab</a></li>
+			<li><a href="https://www.linkedin.com/in/s%C3%A9bastien-p-48717074/" target=”_blank”><img
+						src="../../../src/lib/imgs/Linkedin_logo.webp"
+						alt="White X letter on dirty black background" />Linkedin</a></li>
 		</ul>
 	</div>
 	<div class="newsletter">
