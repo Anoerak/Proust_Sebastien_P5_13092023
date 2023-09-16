@@ -82,7 +82,7 @@
 				</div>
 				<div class="action__container">
 					<input formnovalidate form="form2" class="main__button update__user" type="submit" value="Update">
-					<input form="form2" class="delete__button delete__user" type="submit" value="Delete your account"
+					<input formnovalidate class="delete__button delete__user" type="submit" value="Delete your account"
 						formaction="index.php?page=userProfile&action=delete&option=user&id=<?= $_SESSION['user_id'] ?>">
 				</div>
 			</form>

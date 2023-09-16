@@ -68,10 +68,11 @@ html {
 
 body {
 	min-height: calc(100vh - 304px);
-	margin: 0;
+	margin: auto;
 	padding: 0;
 }
 
-body main {
-	min-height: calc(100vh - 445px);
+body section {
+	max-width: 1440px;
+	margin: auto;
 }

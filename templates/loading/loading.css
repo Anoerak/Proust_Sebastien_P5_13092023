@@ -3,14 +3,16 @@ section.loading__container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0;
+	margin: 0 auto;
 	min-height: 100vh;
 	width: 100%;
+	max-width: 3440px;
 }
 
 section.loading__container .top {
 	height: 4rem;
 	width: 100%;
+	max-width: 3440px;
 	background-color: var(--text-color-dark-gray);
 }
 
@@ -25,6 +27,7 @@ section.loading__container .loading.loading_message {
 	border-radius: 1rem;
 	box-shadow: 0 11px 34px 0 rgba(0, 0, 0, .2);
 	padding: 2rem;
+	margin: 0 auto;
 }
 
 section.loading__container .loading.loading_message img {

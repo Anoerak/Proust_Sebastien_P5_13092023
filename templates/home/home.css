@@ -1,25 +1,28 @@
-.hero__container {
+section.hero__container {
 	/*Display stuff*/
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	/*Box model stuff*/
-	margin: 0;
+	margin: 0 auto;
 	padding: 7rem 1rem 1rem 1rem;
 	background-image: url('../../src/lib/imgs/wallpaper.webp');
+	background-size: cover;
 	/*Typography stuff*/
 	text-align: center;
+	width: 100%;
+	max-width: 3440px;
 }
 
-.hero__container h1 {
+section.hero__container h1 {
 	/*Typography stuff*/
 	font-size: 2rem;
 	font-weight: 500;
 	color: white;
 }
 
-.hero__container .cards__container {
+section.hero__container .cards__container {
 	/*Display stuff*/
 	display: flex;
 	flex-direction: row;
@@ -35,7 +38,7 @@
 }
 
 /* #Region Profile Card */
-.hero__container .profile__card__main__container {
+section.hero__container .profile__card__main__container {
 	/*Display stuff*/
 	display: flex;
 	flex-direction: column;
@@ -57,7 +60,7 @@
 	box-shadow: 17px 20px 40px rgba(0, 0, 0, .21);
 }
 
-.hero__container .profile__card__main__container:hover {
+section.hero__container .profile__card__main__container:hover {
 	/*Manipulations stuff*/
 	transform: scale(1.05);
 	/*Miscellaneous*/
@@ -65,7 +68,7 @@
 }
 
 
-.hero__container .profile__card__main__container .profile__background {
+section.hero__container .profile__card__main__container .profile__background {
 	/*Positioning stuff*/
 	position: absolute;
 	left: 1px;
@@ -75,7 +78,7 @@
 	height: 196px;
 }
 
-.hero__container .profile__card__main__container .static__avatar {
+section.hero__container .profile__card__main__container .static__avatar {
 	/*Display stuff*/
 	display: block;
 	/*Positioning stuff*/
@@ -91,7 +94,7 @@
 	border-radius: 50%;
 }
 
-.hero__container .profile__card__main__container .resume__logo {
+section.hero__container .profile__card__main__container .resume__logo {
 	/*Display stuff*/
 	display: block;
 	/*Positioning stuff*/
@@ -100,11 +103,11 @@
 	bottom: 2.5rem;
 }
 
-.hero__container .profile__card__main__container .resume__logo img {
+section.hero__container .profile__card__main__container .resume__logo img {
 	width: 50px;
 }
 
-.hero__container .profile__card__main__container .static__avatar .profile__image__container img {
+section.hero__container .profile__card__main__container .static__avatar .profile__image__container img {
 	/*Display stuff*/
 	display: block;
 	/*Positioning stuff*/
@@ -122,7 +125,7 @@
 }
 
 /* #Region User Info */
-.hero__container .profile__card__main__container .user__info {
+section.hero__container .profile__card__main__container .user__info {
 	/*Display stuff*/
 	display: block;
 	/*Positioning stuff*/
@@ -133,7 +136,7 @@
 	padding: 0;
 }
 
-.hero__container .profile__card__main__container .user__info .user-name {
+section.hero__container .profile__card__main__container .user__info .user-name {
 	/*Typography stuff*/
 	font-size: 32px;
 	font-weight: 600;
@@ -145,7 +148,7 @@
 	letter-spacing: .13px;
 }
 
-.hero__container .profile__card__main__container .user__info .email {
+section.hero__container .profile__card__main__container .user__info .email {
 	/*Box model stuff*/
 	margin-left: -4rem;
 	margin-top: 5px;
@@ -165,7 +168,7 @@
 	cursor: pointer;
 }
 
-.hero__container .profile__card__main__container .plan__name {
+section.hero__container .profile__card__main__container .plan__name {
 	/*Typography stuff*/
 	font-size: 17px;
 	font-weight: 600;
@@ -178,7 +181,7 @@
 /* #endregion */
 
 /* #Region Card Techno */
-.hero__container .card__techno__container {
+section.hero__container .card__techno__container {
 	/*Display stuff*/
 	display: flex;
 	flex-direction: column;
@@ -198,7 +201,7 @@
 	box-shadow: 17px 20px 40px rgba(0, 0, 0, .21);
 }
 
-.hero__container .card__techno__container .technos {
+section.hero__container .card__techno__container .technos {
 	/*Display stuff*/
 	display: flex;
 	flex-direction: row;
@@ -211,7 +214,7 @@
 	gap: 1.5rem;
 }
 
-.hero__container .card__techno__container .techno {
+section.hero__container .card__techno__container .techno {
 	/*Display stuff*/
 	display: flex;
 	flex-direction: column;
@@ -222,7 +225,7 @@
 	height: 112px;
 }
 
-.hero__container .card__techno__container .techno span {
+section.hero__container .card__techno__container .techno span {
 	/*Display stuff*/
 	display: flex;
 	align-items: center;
@@ -238,7 +241,7 @@
 	backdrop-filter: blur(15px) saturate(86%);
 }
 
-.hero__container .card__techno__container .techno span:hover {
+section.hero__container .card__techno__container .techno span:hover {
 	/*Manipulations stuff*/
 	transform: scale(1.05);
 	/*Miscellaneous*/
@@ -246,7 +249,7 @@
 	box-shadow: 17px 20px 40px rgba(0, 0, 0, .31);
 }
 
-.hero__container .card__techno__container .techno span img {
+section.hero__container .card__techno__container .techno span img {
 	/*Box model stuff*/
 	max-width: 50px;
 	max-height: 50px;
@@ -254,7 +257,7 @@
 	color: var(--text-color-light);
 }
 
-.hero__container .card__techno__container .techno p {
+section.hero__container .card__techno__container .techno p {
 	/*Typography stuff*/
 	font-size: 0.85rem;
 	font-weight: R00;
@@ -309,14 +312,24 @@
 	font-weight: 600;
 	width: 100%;
 	text-align: start;
+	position: relative;
 }
 
-.summary__container .drawer__container article a::after {
-	content: '>';
-	font-weight: 600;
-	color: var(--text-color-dark-light);
-	margin-left: 1.5rem;
-	font-size: 1.5rem;
+.summary__container .drawer__container article a h2::before,
+.summary__container .drawer__container article a h2::after {
+	content: '';
+	position: absolute;
+	height: 3px;
+	width: 1rem;
+	right: -2rem;
+	top: 0.65rem;
+	background-color: var(--secondary-color-dark);
+	animation: bouncingRightToLeft 1s infinite;
+}
+
+.summary__container .drawer__container article a h2::after {
+	top: 1.2rem;
+	animation: bouncingRightToLeft2 1s infinite;
 }
 
 .summary__container .drawer__container article .bottom {
@@ -383,3 +396,32 @@
 }
 
 /* #endregion */
+
+
+@keyframes bouncingRightToLeft {
+	0% {
+		transform: translateX(0) rotate(45deg);
+	}
+
+	50% {
+		transform: translateX(0.5rem) rotate(45deg);
+	}
+
+	100% {
+		transform: translateX(0) rotate(45deg);
+	}
+}
+
+@keyframes bouncingRightToLeft2 {
+	0% {
+		transform: translateX(0) rotate(-45deg);
+	}
+
+	50% {
+		transform: translateX(0.5rem) rotate(-45deg);
+	}
+
+	100% {
+		transform: translateX(0) rotate(-45deg);
+	}
+}

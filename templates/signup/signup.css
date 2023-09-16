@@ -1,10 +1,12 @@
 section.signup__container {
 	align-items: center;
 	background-image: url('../../src/lib/imgs/wallpaper.webp');
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	margin: 0;
+	max-width: 3440px;
 	min-height: calc(100vh - 3rem);
 	padding-top: 3rem;
 	width: 100%;
