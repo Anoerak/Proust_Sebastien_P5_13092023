@@ -28,10 +28,10 @@ class ControllerConstructor extends ModelConstructorController
 					'comment' => function () {
 						return ['title' => 'Add a comment', 'template' => 'post/post'];
 					},
-					'_' => function () {
-						return ['title' => 'Add a post', 'template' => 'post/postAdd'];
-					}
 				],
+				'new' => function () {
+					return ['title' => 'Add a post', 'template' => 'post/postAdd'];
+				},
 				'update' => function () {
 					return ['title' => 'Update a post', 'template' => 'post/postUpdate'];
 				}
