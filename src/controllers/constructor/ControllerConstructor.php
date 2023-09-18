@@ -8,193 +8,70 @@ require_once './src/model/user.php';
 require_once './src/model/userConnection.php';
 require_once './src/model/newsletter.php';
 
-
 class ControllerConstructor extends ModelConstructorController
 {
 	private $view;
 	private $datas;
 	private $title = 'IamSeb - ';
 	private $templatePath;
+	private $actions;
 
-	private function setTitleAndTemplatePath($titleAppendix, $templatePathAppendix)
+	public function __construct()
 	{
-		$this->title .= $titleAppendix;
-		$this->templatePath = $templatePathAppendix;
-	}
-
-	private function setDefaultTitleAndTemplatePath($page)
-	{
-		$this->setTitleAndTemplatePath(ucfirst($page), $page . '/' . $page);
-	}
-
-	private function handlePostAction($action, $option, $page)
-	{
-		switch ($action) {
-			case 'get':
-				$this->setTitleAndTemplatePath(ucfirst($option) . ' a ' . $page, $page . '/' . $page . ucfirst($option));
-				break;
-			case 'add':
-				$titleAppendix = 'a ' . ($option === 'comment' ? '' : $page);
-				$templatePathAppendix = $page . '/' . ($option === 'comment' ? $page : $page . 'Add');
-				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
-				break;
-				// Handle other cases...
-		}
+		// We store the actions in an array
+		$this->actions = [
+			'post' => [
+				'get' => function ($option) {
+					return ['title' => ucfirst($option) . ' a post', 'template' => 'post/post' . ucfirst($option)];
+				},
+				'add' => [
+					'comment' => function () {
+						return ['title' => 'Add a comment', 'template' => 'post/post'];
+					},
+					'_' => function () {
+						return ['title' => 'Add a post', 'template' => 'post/postAdd'];
+					}
+				],
+				'update' => function () {
+					return ['title' => 'Update a post', 'template' => 'post/postUpdate'];
+				}
+			],
+		];
 	}
 
 	public function buildControllerMethod($page, $action = null, $option = null, $id = null)
 	{
-		switch ($page) {
-			case 'post':
-				$this->handlePostAction($action, $option, $page);
-				break;
-			case 'userProfile':
-				session_start();
-				if (!isset($_SESSION['logged_user'])) {
-					header('Location: index.php?page=login');
-					exit();
+		// We check if the action is in the array
+		$result = null;
+		if (isset($this->actions[$page])) {
+			if (isset($this->actions[$page][$action])) {
+				if (is_callable($this->actions[$page][$action])) {
+					// If the action is a function, call it with the option
+					$result = ($this->actions[$page][$action])($option);
+				} else if (isset($this->actions[$page][$action][$option]) && is_callable($this->actions[$page][$action][$option])) {
+					// If the option is a function, call it
+					$result = ($this->actions[$page][$action][$option])();
+				} else if (isset($this->actions[$page][$action]['_']) && is_callable($this->actions[$page][$action]['_'])) {
+					// If there's a default function for this action, call it
+					$result = ($this->actions[$page][$action]['_'])();
 				}
-				switch ($action) {
-					case 'get':
-					case 'update':
-					case 'delete':
-						$this->setDefaultTitleAndTemplatePath($page);
-						break;
-				}
-				break;
-				// Handle other cases...
-			default:
-				$this->setDefaultTitleAndTemplatePath($page);
-				break;
+			}
 		}
 
+		// If the action is not in the array, we check if the page is in the array
+		if (!isset($result)) {
+			// Default case
+			$result = ['title' => ucfirst($page), 'template' => $page . '/' . $page];
+		}
+
+		$this->title .= $result['title'];
+		$this->templatePath = $result['template'];
+
+		// We call the parent method to get the datas
 		if (empty($this->datas)) {
 			$this->datas = parent::buildModelMethod($page, $action, $option, $id);
 		}
-
 		$this->view = new View($this->templatePath, $this->title);
-		$this->view->render(['title' => $this->title, 'page' => $page, 'datas' => $this->datas, 'filter' => $option]);
+		$this->view->render(array('title' => $this->title, 'page' => $page, 'datas' => $this->datas, 'filter' => $option));
 	}
 }
-
-
-
-
-
-// class ControllerConstructor extends ModelConstructorController
-// {
-// 	private $view;
-// 	private $datas;
-// 	private $title = 'IamSeb - ';
-// 	private $templatePath;
-
-
-// 	public function buildControllerMethod($page, $action = null, $option = null, $id = null)
-// 	{
-// 		switch ($page) {
-// 			case 'post':
-// 				switch ($action) {
-// 					case 'get':
-// 						$this->title = $this->title . ucfirst($option) . ' a ' . $page;
-// 						$this->templatePath = $page . '/' . $page . ucfirst($option);
-// 						break;
-// 					case 'add':
-// 						switch ($option) {
-// 							case 'comment':
-// 								$this->title = $this->title . ucfirst($action) . 'a ' . $option;
-// 								$this->templatePath = $page . '/' . $page;
-// 								break;
-
-// 							default:
-// 								$this->title = $this->title . ucfirst($action) . 'a ' . $page;
-// 								$this->templatePath = $page . '/' . $page . 'Add';
-// 								break;
-// 						}
-// 						break;
-// 					case 'new':
-// 						$this->title = $this->title . ucfirst($action) . 'a ' . $page;
-// 						$this->templatePath = $page . '/' . $page . 'Add';
-// 						break;
-// 					case 'update':
-// 						switch ($option) {
-// 							case 'get':
-// 								$this->title = $this->title . ucfirst($action) . ' a ' . $page;
-// 								$this->templatePath = $page . '/' . $page . ucfirst($action);
-// 								break;
-// 							case 'comment':
-// 								$this->title = $this->title . ucfirst($action) . 'a ' . $option;
-// 								$this->templatePath	= $page . '/' . $page;
-// 								break;
-// 							default:
-// 								$this->title = $this->title . ucfirst($action) . ' a ' . $page;
-// 								$this->templatePath = $page . '/' . $page;
-// 								break;
-// 						}
-// 						break;
-// 					case 'delete':
-// 						switch ($option) {
-// 							case 'comment':
-// 								$this->title = $this->title . ucfirst($action) . 'a ' . $option;
-// 								$this->templatePath	= $page . '/' . $page;
-// 								break;
-// 							default:
-// 								$this->title = $this->title . ucfirst($action) . ' a ' . $page;
-// 								$this->templatePath = $page . '/' . $page;
-// 								break;
-// 						}
-// 						break;
-// 					case 'validate':
-// 						$this->title = $this->title . ucfirst($action) . ' a ' . $option;
-// 						$this->templatePath = $page . '/' . $page;
-// 						break;
-// 					case 'refuse':
-// 						$this->title = $this->title . ucfirst($action) . 'a ' . $option;
-// 						$this->templatePath = $page . '/' . $page;
-// 						break;
-// 				}
-// 				break;
-// 				/* #EndRegion: Post */
-// 			case 'userProfile':
-// 				session_start();
-// 				if (!isset($_SESSION['logged_user'])) {
-// 					header('Location: index.php?page=login');
-// 					exit();
-// 				}
-// 				switch ($action) {
-// 					case 'get':
-// 						$this->title = $this->title . ucfirst($page);
-// 						$this->templatePath = $page . '/' . $page;
-// 						break;
-// 					case 'update':
-// 						$this->title = $this->title . ucfirst($action) . ucfirst($page);
-// 						$this->templatePath = $page . '/' . $page;
-// 						break;
-// 					case 'delete':
-// 						$this->title = $this->title . ucfirst($action) . ucfirst($page);
-// 						$this->templatePath = $page . '/' . $page;
-// 						break;
-// 				}
-// 				break;
-// 			case 'contact':
-// 				switch ($action) {
-// 					case 'send':
-// 						$this->title = $this->title . ucfirst($action) . ' a ' . $page;
-// 						$this->datas = Tools::contactForm();
-// 						$this->templatePath = $page . '/' . $page;
-// 						break;
-// 				}
-// 				$this->title = $this->title . ucfirst($page);
-// 				$this->templatePath = $page . '/' . $page;
-// 				break;
-// 			default:
-// 				$this->title = $this->title . ucfirst($page);
-// 				$this->templatePath = $page . '/' . $page;
-// 				break;
-// 		}
-// 		if (empty($this->datas)) {
-// 			$this->datas = parent::buildModelMethod($page, $action, $option, $id);
-// 		}
-// 		$this->view = new View($this->templatePath, $this->title);
-// 		$this->view->render(array('title' => $this->title, 'page' => $page, 'datas' => $this->datas, 'filter' => $option));
-// 	}
-// }

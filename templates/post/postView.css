@@ -19,7 +19,7 @@ section.post__detail__container .top {
 
 
 section.post__detail__container article {
-	width: 100%;
+	width: 75%;
 	max-width: 1440px;
 	margin: 0;
 	display: flex;

@@ -1,49 +1,5 @@
 <?php
 
-// abstract class ModelConstructorController
-// {
-// 	private $datas;
-
-// 	// Configuration array for mapping actions to methods
-// 	private $actionToMethod = [
-// 		'get' => 'Get',
-// 		'add' => 'Add',
-// 		'update' => 'Update',
-// 		'delete' => 'Delete',
-// 		'validate' => 'Validate',
-// 		'refuse' => 'Refuse'
-// 	];
-
-// 	protected function buildModelMethod($page, $action = null, $option = null, $id = null)
-// 	{
-// 		// Use the configuration array to set the method
-// 		if (isset($this->actionToMethod[$action])) {
-// 			$method = $action . $this->actionToMethod[$action];
-// 		} else {
-// 			$method = 'getPosts';
-// 		}
-
-// 		// Set the model
-// 		$model = ucfirst($page);
-
-// 		// Fetch data
-// 		$this->fetchData($model, $method, $id);
-// 	}
-
-// 	private function fetchData($model, $method, $id)
-// 	{
-// 		if (empty($this->datas)) {
-// 			$this->datas = $model::$method($id);
-// 		}
-// 	}
-// }
-
-
-
-
-
-
-
 abstract class ModelConstructorController
 {
 	private $datas;
