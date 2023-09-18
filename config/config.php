@@ -12,8 +12,8 @@ define('DB_USER', 'db-user');
 define('DB_PASSWORD', 'db-password');
 
 // We define our variable
-define('IPGEOLOC_API_KEY', '4ba9b4893e09403e9e8921bcf41e1b57');
-define('WEATHERAPI_API_KEY', 'c437ed519974472bb72115743232002');
+define('IPGEOLOC_API_KEY', 'your-api-key');
+define('WEATHERAPI_API_KEY', 'your-api-key');
 
 // We define our resources array
 define(
