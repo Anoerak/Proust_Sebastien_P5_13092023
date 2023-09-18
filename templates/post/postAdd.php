@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 <section class="add__post">
 	<h1>Create a new Post</h1>
-	<form class="add__post__form" action="index.php?page=post&action=add&option=new" method="post" enctype="multipart/form-data">
+	<form class="add__post__form" action="index.php?page=post&action=add&option=new" method="post"
+		enctype="multipart/form-data">
 		<div class="form-group">
 			<input type="hidden" name="author_id" id="author_id" value="<?= $_SESSION['user_id'] ?>">
 			<label for="title">Title</label>
@@ -9,15 +10,14 @@
 			<label for="category">Category</label>
 			<select class="add__category__select" id="category" name="category">
 				<option value="">Choose a category</option>
-				<option value="Career">Career</option>
-				<option value="Dating">Dating</option>
-				<option value="Food">Food</option>
-				<option value="Life">Life</option>
-				<option value="Tech">Tech</option>
-				<option value="Travel">Travel</option>
+				<option value="Frontend">Frontend</option>
+				<option value="Backend">Backend</option>
+				<option value="Fullstack">Fullstack</option>
+				<option value="Others">Others</option>
 			</select>
 			<label for="image">
-				<input type="file" class="add__picture__input" id="post_picture" name="post_picture" accept=".jpeg, .jpg, .png, gif">
+				<input type="file" class="add__picture__input" id="post_picture" name="post_picture"
+					accept=".jpeg, .jpg, .png, gif">
 			</label>
 			<label for="content">Content</label>
 			<textarea class="form-control" id="add__content_textarea" name="content" rows="10" cols="80"></textarea>

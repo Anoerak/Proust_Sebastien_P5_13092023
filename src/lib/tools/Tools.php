@@ -52,9 +52,9 @@ class Tools
 		// We get the picture's error
 		$pictureError = $_FILES[$pictureOrigin]['error'];
 		// We get the picture's allowed extensions
-		$pictureAllowedExtensions = array('jpg', 'jpeg', 'png', 'gif');
+		$pictureAllowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'webp');
 		// We get the picture's allowed MIMEtypes
-		$pictureAllowedMimeTypes = array('image/jpg', 'image/jpeg', 'image/png', 'image/gif');
+		$pictureAllowedMimeTypes = array('image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp');
 		// We get the picture's mime type
 		$pictureMimeType = $_FILES[$pictureOrigin]['type'];
 		// We check if the picture's extension is allowed

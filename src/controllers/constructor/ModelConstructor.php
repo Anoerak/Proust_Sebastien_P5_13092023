@@ -4,51 +4,40 @@
 // {
 // 	private $datas;
 
+// 	// Configuration array for mapping actions to methods
+// 	private $actionToMethod = [
+// 		'get' => 'Get',
+// 		'add' => 'Add',
+// 		'update' => 'Update',
+// 		'delete' => 'Delete',
+// 		'validate' => 'Validate',
+// 		'refuse' => 'Refuse'
+// 	];
+
 // 	protected function buildModelMethod($page, $action = null, $option = null, $id = null)
 // 	{
+// 		// Use the configuration array to set the method
+// 		if (isset($this->actionToMethod[$action])) {
+// 			$method = $action . $this->actionToMethod[$action];
+// 		} else {
+// 			$method = 'getPosts';
+// 		}
+
+// 		// Set the model
 // 		$model = ucfirst($page);
-// 		$method = '';
 
-// 		switch ($page) {
-// 			case 'post':
-// 				$method = $action . ucfirst($page);
-// 				if ($action === 'get') {
-// 					$this->datas = $model::$method($id);
-// 					$this->datas->comments = Comment::getComments($id);
-// 				} elseif ($action === 'add' && $option !== 'comment') {
-// 					$method = $action . ucfirst($page);
-// 				}
-// 				break;
-// 			case 'userProfile':
-// 				$method = $action . ucfirst($option);
-// 				if ($action === 'get' || $action === 'update') {
-// 					$this->datas = $model::$method($id);
-// 					UserConnection::UpdateSession($action === 'get' ? $this->datas->id : $id);
-// 				} elseif ($action === 'delete') {
-// 					$this->datas = $model::$method($id);
-// 				}
-// 				break;
-// 			case 'signup':
-// 			case 'login':
-// 			case 'newsletter':
-// 				$method = $action . ucfirst($option);
-// 				break;
-// 			case 'blog':
-// 				$method = 'getPosts';
-// 				$this->datas = $model::$method($option);
-// 				break;
-// 			default:
-// 				$method = 'getPosts';
-// 				break;
+// 		// Fetch data
+// 		$this->fetchData($model, $method, $id);
+// 	}
+
+// 	private function fetchData($model, $method, $id)
+// 	{
+// 		if (empty($this->datas)) {
+// 			$this->datas = $model::$method($id);
 // 		}
-
-// 		if (!empty($method)) {
-// 			return $this->datas = $model::$method();
-// 		}
-
-// 		return $this->datas;
 // 	}
 // }
+
 
 
 

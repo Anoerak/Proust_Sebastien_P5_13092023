@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/../../config/config.local.php';
 abstract class DbConnect
 {
 	// PDO Object to connect to the database
@@ -27,16 +28,16 @@ abstract class DbConnect
 			// Development Server
 
 			// Windows
-			// $host = "localhost";
-			// $port = 3306;
+			// $host = DB_HOST;
+			// $port = DB_PORT;
 
 			// MAC
-			$host = "127.0.0.1";
-			$port = 8889;
+			$host = DB_HOST;
+			$port = DB_PORT;
 
-			$db = "myblog";
-			$user = "test";
-			$password = "password";
+			$db = DB_NAME;
+			$user = DB_USER;
+			$password = DB_PASSWORD;
 
 
 			self::$db = new PDO(

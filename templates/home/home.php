@@ -38,7 +38,7 @@
  				</svg>
  				<a href="index.php?page=about" class="static__avatar">
  					<div class="profile__image__container">
- 						<img alt="Your profile Image" src="../../src/lib/imgs/profile_picture.webp">
+ 						<img alt="Your profile Image" src="../../src/lib/imgs/geek.webp">
  					</div>
  				</a>
  				<a href="../../public/files/Resume_Seb_classic.pdf" class="resume__logo" target=”_blank”

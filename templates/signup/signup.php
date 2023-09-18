@@ -45,4 +45,5 @@
 			<input type="reset" value="Cancel" class="cancel__button" form="form1">
 			<input type="submit" value="Sign Up" class="main__button" form="form1">
 		</div>
+	</div>
 </section>

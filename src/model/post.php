@@ -11,20 +11,42 @@ class Post extends dbConnect
 	public string $category;
 	public string $picture;
 	public string $title;
+	public string $description;
 	public string $content;
-	public string $created_at;
+	public string $keywords;
+	public $siteLink;
+	public $githubLink;
+	public $created_at;
 	public $comments;
 	public $updated_at;
 
-	public function __construct($id = null, $author_id = null, $author_username = null, $category = null, $picture = null, $title = null, $content = null, $created_at = null, $comments = null, $updated_at = null)
-	{
+	public function __construct(
+		$id = null,
+		$author_id = null,
+		$author_username = null,
+		$category = null,
+		$picture = null,
+		$title = null,
+		$description = null,
+		$content = null,
+		$keywords = null,
+		$siteLink = null,
+		$githubLink = null,
+		$created_at = null,
+		$comments = null,
+		$updated_at = null
+	) {
 		$this->id = $id;
 		$this->author_id = $author_id;
 		$this->author_username = $author_username;
 		$this->category = $category;
 		$this->picture = $picture;
 		$this->title = $title;
+		$this->description = $description;
 		$this->content = $content;
+		$this->keywords = $keywords;
+		$this->siteLink = $siteLink;
+		$this->githubLink = $githubLink;
 		$this->created_at = $created_at;
 		$this->comments = $comments;
 		$this->updated_at = $updated_at;
@@ -64,7 +86,7 @@ class Post extends dbConnect
 		if ($sql->rowCount() > 0) {
 			// We create a new Post object for each post
 			while ($post = $sql->fetch(PDO::FETCH_ASSOC)) {
-				$posts[] = new Post($post['id'], $post['author_id'], '', $post['category'], $post['picture'], $post['title'], $post['content'], $post['created_at'], $post['updated_at']);
+				$posts[] = new Post($post['id'], $post['author_id'], '', $post['category'], $post['picture'], $post['title'], $post['description'], $post['content'], $post['keywords'], $post['site_link'], $post['github_link'], $post['created_at'], $post['updated_at']);
 			}
 			// We get the author's username for each post
 			foreach ($posts as $post) {
@@ -103,7 +125,7 @@ class Post extends dbConnect
 				$post['updated_at'] = null;
 			};
 			// We return the post
-			return new Post($post['id'], $author->id, $author->username, $post['category'], $post['picture'], $post['title'], $post['content'], $post['created_at'], $post['updated_at']);
+			return new Post($post['id'], $author->id, $author->username, $post['category'], $post['picture'], $post['title'], $post['description'], $post['content'], $post['keywords'], $post['site_link'], $post['github_link'], $post['created_at'], $post['updated_at']);
 		} else {
 			// We throw an exception if no post was found
 			throw new Exception("No article found for the id '$id'", 400);
@@ -119,8 +141,12 @@ class Post extends dbConnect
 		$author_id = $_POST['author_id'];
 		$category = filter_input(INPUT_POST, 'category');
 		$title = $_POST['title'];
+		$description = $_POST['description'];
 		$picture = $_FILES['post_picture'];
 		$content = $_POST['content'];
+		$keywords = $_POST['keywords'];
+		$siteLink = $_POST['siteLink'];
+		$githubLink = $_POST['githubLink'];
 
 		// We check the picture format and add it if OK
 		if (!empty($_FILES['post_picture']['name'])) {
@@ -133,7 +159,7 @@ class Post extends dbConnect
 		}
 
 		// We add the post to the database
-		$sql = parent::executeRequest("INSERT INTO post (author_id, category, title, picture, content) VALUES (?,?,?,?,?)", array($author_id, $category, $title, $picture, $content));
+		$sql = parent::executeRequest("INSERT INTO post (author_id, category, title, description,  picture, content, keywords, site_link, github_link) VALUES (?,?,?,?,?,?,?,?,?)", array($author_id, $category, $title, $description, $picture, $content, $keywords, $siteLink, $githubLink));
 
 		// We check if everything worked out fine
 		if ($sql) {
@@ -153,8 +179,12 @@ class Post extends dbConnect
 		$id = $_POST['post_id'];
 		$category = filter_input(INPUT_POST, 'category');
 		$title = $_POST['title'];
+		$description = $_POST['description'];
 		$content = $_POST['content'];
 		$picture = '';
+		$keywords = $_POST['keywords'];
+		$siteLink = $_POST['siteLink'];
+		$githubLink = $_POST['githubLink'];
 
 		// We check the picture format and add it if OK
 		if (!empty($_FILES['post_picture']['name'])) {
@@ -176,9 +206,13 @@ class Post extends dbConnect
 		// we create an array with the values to update
 		$datas = array(
 			'title' => $title !== $origin->title ? $title : null,
+			'description' => $description !== $origin->description ? $description : null,
 			'category' => $category !== $origin->category ? $category : null,
 			'content' => $content !== $origin->content ? $content : null,
-			'picture' => $picture !== $origin->picture ? $picture : null
+			'picture' => $picture !== $origin->picture ? $picture : null,
+			'keywords' => $keywords !== $origin->keywords ? $keywords : null,
+			'site_link' => $siteLink !== $origin->siteLink ? $siteLink : null,
+			'github_link' => $githubLink !== $origin->githubLink ? $githubLink : null
 		);
 
 		// For each value equal to null or empty, we remove it from the array

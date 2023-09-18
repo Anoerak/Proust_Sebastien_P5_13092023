@@ -20,4 +20,5 @@
 		policy, feel free to contact us. We're always happy to chat.</p>
 	<p>So there you have it, legends. Your privacy is safe with us. Now go forth and conquer the world (or at least your
 		dating life).</p>
+	<div class="bottom"></div>
 </article>

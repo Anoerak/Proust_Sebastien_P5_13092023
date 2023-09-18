@@ -51,8 +51,6 @@ function wrapPartial(min, max) {
 	};
 }
 
-console.log(MAPBOX_API_KEY);
-
 mapboxgl.accessToken = MAPBOX_API_KEY;
 var map = new mapboxgl.Map({
 	container: 'map',

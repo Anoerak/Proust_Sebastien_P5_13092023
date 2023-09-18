@@ -226,6 +226,11 @@ $forecast = $weatherApiResponse->forecast;
 					<?php endforeach; ?>
 				</div>
 			</div>
+		</div>
+		<div class="third__row">
+			<img src="https://streak-stats.demolab.com?user=Anoerak&theme=github-light&&hide_border=true&mode=weekly&border_radius=11" />
+			<img src="https://github-readme-stats-git-main-anoerak.vercel.app/api?username=Anoerak&count_private=true&show_icons=true&border_radius=11&hide_border=true" />
+		</div>
 	</main>
 	<div class="bottom"></div>
 </section>

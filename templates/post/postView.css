@@ -1,17 +1,35 @@
-article.post__detail__container .post__category {
-	font-size: 1rem;
-	font-weight: 800;
-	color: var(--secondary-color);
+section.post__detail__container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 0 auto;
+	min-height: 100vh;
+	width: 100%;
+	max-width: 3440px;
 }
 
-article.post__detail__container .post__dates {
-	font-size: 0.8rem;
-	font-weight: 200;
-	font-style: italic;
+section.post__detail__container .top {
+	height: 4rem;
+	width: 100%;
+	max-width: 3440px;
+	margin: 0;
+	background-color: var(--text-color-dark-gray);
 }
 
-article.post__detail__container .post__author {
-	font-size: 1rem;
-	font-weight: 800;
-	color: var(--secondary-color);
+
+section.post__detail__container article {
+	width: 100%;
+	max-width: 1440px;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+section.post__detail__container .bottom {
+	height: 3rem;
+	width: 100%;
+
 }
