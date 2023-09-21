@@ -46,16 +46,16 @@ class Comment extends dbConnect
 			if ($comment->updated_at !== null) {
 				$comment->updated_at = Tools::formatDate($comment->updated_at);
 			}
-			if ($comment->validation_status === 'false') {
-				$comment->content_status = '<font color="red">
+			if ($comment->validation_status === 'unpublished') {
+				$comment->content_status = '<font color="#ff5353">
 					Attention, blog-o-sphere!<br>
-					Unfortunately, this comment has been removed for not following the rules of my legendary blog.<br>
+					Unfortunately, this comment has been removed for not following the <a href="index.php?page=rules">rules</a> of my legendary blog.<br>
 					So, if you want your comment to be seen by the world, make sure you follow these simple rules.<br>
 					And if you don\'t, well, let\'s just say you\'ll be getting a visit from the comment-blocking hammer.<br>
 					Suit up!</font>';
 			} elseif ($comment->validation_status === 'pending') {
 				// We replace the comment's content with a message if it's pending
-				$comment->content_status = '<font color="blue">
+				$comment->content_status = '<font color="#9fa4ac">
 					<em><b>Blog-o-sphere, gather around!</b><br>
 					There\'s a new comment on my latest post that\'s waiting for my legendary approval. And let me tell you, I take this responsibility very seriously.<br>
 					So, if you\'re waiting for your comment to be published, don\'t worry, it\'s in good hands. And if it doesn\'t make the cut, well, let\'s just say it\'s not you, it\'s me.<br>
@@ -79,7 +79,9 @@ class Comment extends dbConnect
 			if (!$sql) {
 				throw new Exception('Something went wrong, please try again.', 500);
 			} else {
-				header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $post_id);
+				// We get the id of the comment
+				$newCommentId = parent::getLastInsertedId();
+				header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $post_id . '#' . $newCommentId);
 				throw new Exception('Congrats folk, your awesome comment is now waiting for my legendary approval!', 200);
 			}
 		}
@@ -98,7 +100,7 @@ class Comment extends dbConnect
 			if (!$sql) {
 				throw new Exception('Something went wrong, please try again.', 500);
 			} else {
-				header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id']);
+				header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id'] . '#' . $id);
 				throw new Exception('Congrats folk, your update is now waiting for my legendary approval!', 200);
 			}
 		}
@@ -124,13 +126,13 @@ class Comment extends dbConnect
 	/* #Region Refuse a comment */
 	public static function refuseComment($id)
 	{
-		$status = 'false';
+		$status = 'unpublished';
 		// We update the comment validation_status
 		$sql = parent::executeRequest("UPDATE comment SET validation_status = (?) WHERE id = ?", array($status, $id));
 		if (!$sql) {
 			throw new Exception('Something went wrong, please try again.', 500);
 		} else {
-			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id']);
+			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id'] . '#' . $id);
 			throw new Exception('This comment is now unavailable for all users!', 200);
 		}
 	}
@@ -140,13 +142,13 @@ class Comment extends dbConnect
 	/* #Region Validate a comment */
 	public static function validateComment($id)
 	{
-		$status = 'true';
+		$status = 'published';
 		// We update the comment validation_status
 		$sql = parent::executeRequest("UPDATE comment SET validation_status = (?) WHERE id =?", array($status, $id));
 		if (!$sql) {
 			throw new Exception('Something went wrong, please try again.', 500);
 		} else {
-			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id']);
+			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id'] . '#' . $id);
 			throw new Exception('This comment is now available for all users', 200);
 		}
 	}

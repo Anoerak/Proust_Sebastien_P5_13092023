@@ -28,6 +28,10 @@ section.post__detail__container article {
 	justify-content: flex-start;
 }
 
+section.post__detail__container article .post__edition .main__button {
+	background-color: var(--primary-color_contrast);
+}
+
 section.post__detail__container .bottom {
 	height: 3rem;
 	width: 100%;

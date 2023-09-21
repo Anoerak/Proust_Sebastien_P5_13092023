@@ -3,10 +3,10 @@ section.blog__rules {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0auto;
+	margin: 0 auto;
+	max-width: 3440px;
 	min-height: 100vh;
 	width: 80%;
-	max-width: 3440px;
 }
 
 section.blog__rules .top {

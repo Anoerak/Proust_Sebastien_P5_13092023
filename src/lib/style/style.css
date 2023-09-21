@@ -28,15 +28,18 @@
 	--quaternary-color-dark: #3d3d3d;
 	--quinary-color: #c3b5c6;
 
-	--alert-primary: #f2a84f;
-	--alert-primary-strong: #f2a84f;
-	--alert-primary-light: #f2d84f;
-	--danger-primary: #eb5858;
-	--danger-primary-strong: #d32f2f;
-	--danger-primary-light: #ef9a9a;
-	--success-primary: #4caf50;
-	--success-primary-strong: #388e3c;
-	--success-primary-light: #81c784;
+	--alert-primary: #ffc37f80;
+	--alert-primary-vivid: #ff9f53;
+	--alert-primary-strong: #ffc37f;
+	--alert-primary-light: #ffe9be;
+	--danger-primary: #ff7f7f80;
+	--danger-primary-vivid: #ff5353;
+	--danger-primary-strong: #ff7f7f;
+	--danger-primary-light: #ffbebe;
+	--success-primary: #7fffd480;
+	--success-primary-vivid: #53ff5380;
+	--success-primary-strong: #7fffd4;
+	--success-primary-light: #beffe9;
 
 	--text-color-light: #ffffff;
 	--text-color-light-light: #f0f0f0;

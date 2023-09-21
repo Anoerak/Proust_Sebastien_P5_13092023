@@ -37,7 +37,7 @@ class Newsletter extends dbConnect
 					$sql = parent::executeRequest("INSERT INTO newsletter (email) VALUES (?)", array($email));
 					// We redirect the user to the userProfile page after 3 seconds
 					session_start();
-					header("Refresh:3; url=index.php?page=userProfile&action=get&option=user&id=" . $_SESSION['user_id']);
+					header("Refresh:3; url=index.php");
 					throw new \Exception("You have been successfully registered", 200);
 				}
 			} else {

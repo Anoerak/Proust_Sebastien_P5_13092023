@@ -5,7 +5,7 @@
 		<form action="index.php?page=post&action=add&option=comment&id=<?= $_GET['id'] ?>" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="comment">Comment</label>
-				<textarea name="comment" class="form-control" id="comment" cols="10" rows="7"></textarea>
+				<textarea name="comment" class="form-control" id="comment" cols="100" rows="7"></textarea>
 			</div>
 			<div class="form-buttons">
 				<input type="submit" value="Submit" class="main__button" />
