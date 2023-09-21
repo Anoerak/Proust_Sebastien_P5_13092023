@@ -8,90 +8,91 @@ require_once './src/model/user.php';
 require_once './src/model/userConnection.php';
 require_once './src/model/newsletter.php';
 
+
 class ControllerConstructor extends ModelConstructorController
 {
 	private $view;
 	private $datas;
-	private $title = 'IamSeb - ';
+	private $title = 'My Awesome Blog !! - ';
 	private $templatePath;
-	private $actions;
 
-	public function __construct()
+	private function setTitleAndTemplatePath($titleAppendix, $templatePathAppendix)
 	{
-		// We store the actions in an array
-		$this->actions = [
-			'post' => [
-				'get' => function ($option) {
-					return ['title' => ucfirst($option) . ' a post', 'template' => 'post/post' . ucfirst($option)];
-				},
-				'add' => [
-					'comment' => function () {
-						return ['title' => 'Add a comment', 'template' => 'post/post'];
-					},
-				],
-				'new' => function () {
-					return ['title' => 'Add a post', 'template' => 'post/postAdd'];
-				},
-				'update' => function () {
-					return ['title' => 'Update a post', 'template' => 'post/postUpdate'];
+		$this->title .= $titleAppendix;
+		$this->templatePath = $templatePathAppendix;
+	}
+
+	private function setDefaultTitleAndTemplatePath($page)
+	{
+		$this->setTitleAndTemplatePath(ucfirst($page), $page . '/' . $page);
+	}
+
+	private function handlePostAction($action, $option, $page)
+	{
+		switch ($action) {
+			case 'get':
+				$this->setTitleAndTemplatePath(ucfirst($option) . ' a ' . $page, $page . '/' . $page . ucfirst($option));
+				break;
+			case 'add':
+				$titleAppendix = 'a ' . ($option === 'comment' ? '' : $page);
+				$templatePathAppendix = $page . '/' . ($option === 'comment' ? $page : $page . 'Add');
+				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
+				break;
+			case 'new':
+				$this->setTitleAndTemplatePath(ucfirst($action) . ' a ' . $page, $page . '/' . $page . 'Add');
+				break;
+			case 'update':
+				$titleAppendix = ' a ' . $page;
+				$templatePathAppendix = $page . '/' . $page . ucfirst($action);
+				if ($option === 'comment') {
+					$titleAppendix = 'a ' . $option;
+					$templatePathAppendix = $page . '/' . $page;
 				}
-			],
-		];
+				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
+				break;
+			case 'delete':
+				$titleAppendix = ' a ' . $page;
+				$templatePathAppendix = $page . '/' . $page;
+				if ($option === 'comment') {
+					$titleAppendix = 'a ' . $option;
+					$templatePathAppendix = $page . '/' . $page;
+				}
+				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
+				break;
+		}
 	}
 
 	public function buildControllerMethod($page, $action = null, $option = null, $id = null)
 	{
-		// We check if the action is in the array
-		$result = null;
-		if (isset($this->actions[$page])) {
-			if (isset($this->actions[$page][$action])) {
-				if (is_callable($this->actions[$page][$action])) {
-					try {
-						// If the action is a function, call it with the option
-						$result = ($this->actions[$page][$action])($option);
-					} catch (Exception $e) {
-						Tools::error($e->getMessage(), $e->getCode());
-					}
-				} else if (isset($this->actions[$page][$action][$option]) && is_callable($this->actions[$page][$action][$option])) {
-					try {
-						// If the option is a function, call it
-						$result = ($this->actions[$page][$action][$option])();
-					} catch (Exception $e) {
-						Tools::error($e->getMessage(), $e->getCode());
-					}
-				} else if (isset($this->actions[$page][$action]['_']) && is_callable($this->actions[$page][$action]['_'])) {
-					try {
-						// If there's a default function for this action, call it
-						$result = ($this->actions[$page][$action]['_'])();
-					} catch (Exception $e) {
-						Tools::error($e->getMessage(), $e->getCode());
-					}
+		switch ($page) {
+			case 'post':
+				$this->handlePostAction($action, $option, $page);
+				break;
+			case 'userProfile':
+				session_start();
+				if (!isset($_SESSION['logged_user'])) {
+					header('Location: index.php?page=login');
+					exit();
 				}
-			}
+				switch ($action) {
+					case 'get':
+					case 'update':
+					case 'delete':
+						$this->setDefaultTitleAndTemplatePath($page);
+						break;
+				}
+				break;
+				// Handle other cases...
+			default:
+				$this->setDefaultTitleAndTemplatePath($page);
+				break;
 		}
 
-		// If the action is not in the array, we check if the page is in the array
-		if (!isset($result)) {
-			try {
-				// Default case
-				$result = ['title' => ucfirst($page), 'template' => $page . '/' . $page];
-			} catch (Exception $e) {
-				Tools::error($e->getMessage(), $e->getCode());
-			}
-		}
-
-		$this->title .= $result['title'];
-		$this->templatePath = $result['template'];
-
-		// We call the parent method to get the datas
 		if (empty($this->datas)) {
-			try {
-				$this->datas = parent::buildModelMethod($page, $action, $option, $id);
-			} catch (Exception $e) {
-				Tools::error($e->getMessage(), $e->getCode());
-			}
+			$this->datas = parent::buildModelMethod($page, $action, $option, $id);
 		}
+
 		$this->view = new View($this->templatePath, $this->title);
-		$this->view->render(array('title' => $this->title, 'page' => $page, 'datas' => $this->datas, 'filter' => $option));
+		$this->view->render(['title' => $this->title, 'page' => $page, 'datas' => $this->datas, 'filter' => $option]);
 	}
 }
