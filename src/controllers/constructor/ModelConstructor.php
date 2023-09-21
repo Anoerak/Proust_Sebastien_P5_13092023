@@ -19,7 +19,6 @@ abstract class ModelConstructorController
 						$modelPost = ucfirst($page);
 						$methodPost = $action . ucfirst($page);
 						$this->datas = $modelPost::$methodPost($id);
-						// $this->datas->comments = Comment::getComments($id);
 						$modelComments = 'Comment';
 						$methodComments = 'getComments';
 						$this->datas->comments = $modelComments::$methodComments($id);

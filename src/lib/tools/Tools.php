@@ -69,8 +69,7 @@ class Tools
 						$pictureNewName = uniqid('', true) . "." . $pictureExtension;
 						// We set the picture's destination
 						$pictureDestination = "./public/img/" . $pictureOrigin . "/" . $pictureNewName;
-						// For Production :
-						// 	$pictureDestination = "public/img/" . $pictureOrigin . "/" . $pictureNewName;
+						// For Production, we'll use $pictureDestination = "public/img/" . $pictureOrigin . "/" . $pictureNewName;
 						// We upload the picture to the server
 						move_uploaded_file($pictureTmpName, $pictureDestination);
 						// We return the picture destination
@@ -160,8 +159,7 @@ class Tools
 					// We check if the message is not empty
 					if (!empty($contactMessage)) {
 						// We set the headers
-						// Production
-						// $headers = "From: daemon@iamseb.dev";
+						// Production will use $headers = "From: daemon@iamseb.dev";
 						// Development
 						$headers = "From: daemon@iamseb.dev \r \n Reply-To: " . $contactEmail . " \r \n X-Mailer: PHP/" . phpversion();
 						// We set the message

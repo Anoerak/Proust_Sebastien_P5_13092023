@@ -64,9 +64,7 @@ $forecast = $weatherApiResponse->forecast;
 		<div class="first_row">
 			<div class="music">
 				<iframe allow="autoplay *; encrypted-media *;" frameborder="0""
-					sandbox=" allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation
-					allow-top-navigation-by-user-activation"
-					src="https://embed.music.apple.com/us/playlist/replay-2023/pl.rp-nWWEH6yxkJGv"></iframe>
+					sandbox=" allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/playlist/replay-2023/pl.rp-nWWEH6yxkJGv"></iframe>
 			</div>
 			<div id="map" class="map">
 				<img src="../../src/lib/imgs/map_directions.webp" alt="Directions from Limoges to Stockholm" />
@@ -81,15 +79,9 @@ $forecast = $weatherApiResponse->forecast;
 					pixel-perfect, performant experiences.</p>
 				<div class="social">
 					<ul>
-						<li><a href="https://github.com/Anoerak" target=”_blank”><img
-									src="../../../src/lib/imgs/github.webp"
-									alt="Letter F in white on blue background" />Github</a></li>
-						<li><a href="https://gitlab.com/Anoerak" target=”_blank”><img
-									src="../../../src/lib/imgs/gitlab.webp"
-									alt="White minimal camera logo on Reddish rainbow background" />GitLab</a></li>
-						<li><a href="https://www.linkedin.com/in/s%C3%A9bastien-p-48717074/" target=”_blank”><img
-									src="../../../src/lib/imgs/Linkedin_logo.webp"
-									alt="White X letter on dirty black background" />Linkedin</a></li>
+						<li><a href="https://github.com/Anoerak" target=”_blank”><img src="../../../src/lib/imgs/github.webp" alt="Letter F in white on blue background" />Github</a></li>
+						<li><a href="https://gitlab.com/Anoerak" target=”_blank”><img src="../../../src/lib/imgs/gitlab.webp" alt="White minimal camera logo on Reddish rainbow background" />GitLab</a></li>
+						<li><a href="https://www.linkedin.com/in/s%C3%A9bastien-p-48717074/" target=”_blank”><img src="../../../src/lib/imgs/Linkedin_logo.webp" alt="White X letter on dirty black background" />Linkedin</a></li>
 					</ul>
 				</div>
 			</div>
@@ -216,29 +208,28 @@ $forecast = $weatherApiResponse->forecast;
 
 					?>
 					<?php foreach ($forecastHour as $hour) : ?>
-					<div class="bottom__hour">
-						<div class="bottom__hour__time">
-							<?=
+						<div class="bottom__hour">
+							<div class="bottom__hour__time">
+								<?=
 								substr($hour->time, 11, 2);
 								?>
-						</div>
-						<div class="bottom__hour__icon">
-							<img src="<?= $hour->condition->icon ?>" alt="Weather icon" />
-						</div>
-						<div class="bottom__hour__temp">
-							<?=
+							</div>
+							<div class="bottom__hour__icon">
+								<img src="<?= $hour->condition->icon ?>" alt="Weather icon" />
+							</div>
+							<div class="bottom__hour__temp">
+								<?=
 								round($hour->temp_c);
 								?>°C
+							</div>
 						</div>
-					</div>
 					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
 		<div class="third__row">
 			<img src="https://streak-stats.demolab.com?user=Anoerak&theme=light&mode=weekly&hide_border=true" />
-			<img
-				src="https://github-readme-stats-git-main-anoerak.vercel.app/api?username=Anoerak&count_private=true&show_icons=true&border_radius=11&hide_border=true" />
+			<img src="https://github-readme-stats-git-main-anoerak.vercel.app/api?username=Anoerak&count_private=true&show_icons=true&border_radius=11&hide_border=true" />
 		</div>
 	</main>
 	<div class="bottom"></div>

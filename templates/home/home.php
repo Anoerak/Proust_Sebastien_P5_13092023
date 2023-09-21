@@ -3,27 +3,20 @@
  	<div class="cards__container">
  		<div class="profile__card__main__container">
  			<div class="profile__avatar">
- 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
- 					viewBox="0 0 185 196" aria-hidden="true" class="profile__background">
+ 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 185 196" aria-hidden="true" class="profile__background">
  					<defs>
  						<path id="0cdfbf55a4f6da8df6561d7ad9023ce8b" d="M0 0h185v196H0z"></path>
- 						<path
- 							d="M133.685 175C162.38 175 185 153.618 185 127.246c0-19.838-11.668-36.944-29.884-45.021C154.997 40.173 124.636 10 85.823 10c-25.36 0-43.575 13.305-55.243 29.341-23.336-6.058-48.457 11.285-49.172 37.776C-40.022 80.917-53 100.28-53 123.327c0 27.796 24.526 51.554 57.149 51.554l129.536.119z"
- 							id="0cdfbf55a4f6da8df6561d7ad9023ce8e"></path>
- 						<linearGradient x1="19.823%" y1="45.17%" x2="-1.128%" y2="45.17%"
- 							id="0cdfbf55a4f6da8df6561d7ad9023ce8a">
+ 						<path d="M133.685 175C162.38 175 185 153.618 185 127.246c0-19.838-11.668-36.944-29.884-45.021C154.997 40.173 124.636 10 85.823 10c-25.36 0-43.575 13.305-55.243 29.341-23.336-6.058-48.457 11.285-49.172 37.776C-40.022 80.917-53 100.28-53 123.327c0 27.796 24.526 51.554 57.149 51.554l129.536.119z" id="0cdfbf55a4f6da8df6561d7ad9023ce8e"></path>
+ 						<linearGradient x1="19.823%" y1="45.17%" x2="-1.128%" y2="45.17%" id="0cdfbf55a4f6da8df6561d7ad9023ce8a">
  							<stop stop-color="#FFF" offset="0%"></stop>
  							<stop stop-color="#FFF" stop-opacity="0" offset="100%"></stop>
  						</linearGradient>
- 						<filter x="-4.6%" y="-6.7%" width="109.2%" height="113.3%" filterUnits="objectBoundingBox"
- 							id="0cdfbf55a4f6da8df6561d7ad9023ce8d">
+ 						<filter x="-4.6%" y="-6.7%" width="109.2%" height="113.3%" filterUnits="objectBoundingBox" id="0cdfbf55a4f6da8df6561d7ad9023ce8d">
  							<feGaussianBlur stdDeviation="6.5" in="SourceAlpha" result="shadowBlurInner1">
  							</feGaussianBlur>
  							<feOffset dy="9" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
- 							<feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
- 								result="shadowInnerInner1"></feComposite>
- 							<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.133002328 0"
- 								in="shadowInnerInner1"></feColorMatrix>
+ 							<feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+ 							<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.133002328 0" in="shadowInnerInner1"></feColorMatrix>
  						</filter>
  					</defs>
  					<g fill="none" fill-rule="evenodd">
@@ -31,8 +24,7 @@
  							<use xlink:href="#0cdfbf55a4f6da8df6561d7ad9023ce8b"></use>
  						</mask>
  						<g fill-rule="nonzero" mask="url(#0cdfbf55a4f6da8df6561d7ad9023ce8c)" fill="#000">
- 							<use filter="url(#0cdfbf55a4f6da8df6561d7ad9023ce8d)"
- 								xlink:href="#0cdfbf55a4f6da8df6561d7ad9023ce8e"></use>
+ 							<use filter="url(#0cdfbf55a4f6da8df6561d7ad9023ce8d)" xlink:href="#0cdfbf55a4f6da8df6561d7ad9023ce8e"></use>
  						</g>
  					</g>
  				</svg>
@@ -41,8 +33,7 @@
  						<img alt="Your profile Image" src="../../src/lib/imgs/geek.webp">
  					</div>
  				</a>
- 				<a href="../../public/files/Resume_Seb_classic.pdf" class="resume__logo" target=”_blank”
- 					rel="noopener noreferrer">
+ 				<a href="../../public/files/Resume_Seb_classic.pdf" class="resume__logo" target=”_blank” rel="noopener noreferrer">
  					<img src="../../src/lib/imgs/cv.png" alt="Drawinf of a resume" />
  				</a>
  			</div>
@@ -166,13 +157,10 @@
  			<a href="index.php?page=blog&option=all">
  				<h2>The Projects</h2>
  			</a>
- 			<img
- 				src="https://github-readme-stats-git-main-anoerak.vercel.app/api/top-langs/?username=Anoerak&layout=compact&langs_count=8&hide=html" />
+ 			<img src="https://github-readme-stats-git-main-anoerak.vercel.app/api/top-langs/?username=Anoerak&layout=compact&langs_count=8&hide=html" />
  			<p class="projects__speech">
- 				All my projects aren't deployed yet, but you can find them on my GitHub <img
- 					src="../../src/lib/imgs/github.svg" alt="Cat outline" /> account.
- 				I realized a lot of them during my training at OpenClassrooms <img
- 					src="../../src/lib/imgs/OCR_logo.webp" alt="Reversed white C on violet background">, but also
+ 				All my projects aren't deployed yet, but you can find them on my GitHub <img src="../../src/lib/imgs/github.svg" alt="Cat outline" /> account.
+ 				I realized a lot of them during my training at OpenClassrooms <img src="../../src/lib/imgs/OCR_logo.webp" alt="Reversed white C on violet background">, but also
  				during my free time.
  			</p>
  			<div class="bottom">

@@ -27,9 +27,7 @@ abstract class DbConnect
 			// Create the PDO object and store the connection in the attribute $db
 			// Development Server
 
-			// Windows
-			// $host = DB_HOST;
-			// $port = DB_PORT;
+			// Windows will use $host = DB_HOST; and $port = DB_PORT;
 
 			// MAC
 			$host = DB_HOST;

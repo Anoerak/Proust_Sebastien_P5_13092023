@@ -154,11 +154,3 @@ class Comment extends dbConnect
 	}
 	/* #EndRegion */
 }
-
-
-// Here\'s a reminder of the rules:<br>
-// 1. Keep it clean, folks. No inappropriate language or content.<br>
-// 2. Let\'s keep it respectful. No hate speech or personal attacks will be tolerated.<br>
-// 3. No spamming. Keep your comments relevant to the topic at hand.<br><br>
-
-// I want to make sure that every comment on my blog is up to my high standards of awesomeness and legendarity. So, before I give it the green light, I\'ll be taking a good look at it to make sure it follows my blog`\'s rules.<br><br>
