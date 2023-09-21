@@ -10,7 +10,7 @@ abstract class DbConnect
 	/* #Region Execute a SQL query which will eventually contain parameters */
 	protected static function executeRequest($sql, $params = null)
 	{
-		if ($params == null) {
+		if ($params === null) {
 			$result = self::getDb()->query($sql);    // direct execution
 		} else {
 			$result = self::getDb()->prepare($sql);  // prepared request
@@ -23,7 +23,7 @@ abstract class DbConnect
 	/* #Region Get the PDO object to connect to the database */
 	private static function getDb()
 	{
-		if (self::$db == null) {
+		if (self::$db === null) {
 			// Create the PDO object and store the connection in the attribute $db
 			// Development Server
 

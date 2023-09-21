@@ -117,14 +117,14 @@ abstract class ModelConstructorController
 						$model = ucfirst($option);
 						$method = $action . ucfirst($option);
 						$this->datas = $model::$method($id);
-						UserConnection::UpdateSession($this->datas->id);
+						UserConnection::updateSession($this->datas->id);
 						return $this->datas;
 						break;
 					case 'update':
 						$model = ucfirst($option);
 						$method = $action . ucfirst($option);
 						$this->datas = $model::$method();
-						UserConnection::UpdateSession($id);
+						UserConnection::updateSession($id);
 						return $this->datas;
 						break;
 					case 'delete':

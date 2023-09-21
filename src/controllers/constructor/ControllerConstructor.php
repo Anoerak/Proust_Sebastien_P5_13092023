@@ -71,8 +71,11 @@ class ControllerConstructor extends ModelConstructorController
 			case 'userProfile':
 				session_start();
 				if (!isset($_SESSION['logged_user'])) {
-					header('Location: index.php?page=login');
-					exit();
+					try {
+						header('Location: index.php?page=login');
+					} catch (Exception $e) {
+						echo 'Exception reçue : ',  $e->getMessage(), "\n";
+					}
 				}
 				switch ($action) {
 					case 'get':

@@ -18,7 +18,7 @@ class UserConnection extends dbConnect
 	}
 
 	/* #Region We Update the $_SESSION variables */
-	static public function UpdateSession($user_id)
+	static public function updateSession($user_id)
 	{
 		// We get the user's informations
 		$userInfos = User::getUser($user_id);
@@ -61,7 +61,7 @@ class UserConnection extends dbConnect
 			$user = $sql->fetch();
 			// Check if the password is correct
 			if (password_verify($password, $user['password'])) {
-				self::UpdateSession($user['user_id']);
+				self::updateSession($user['user_id']);
 				// We redirect the user to the home page after 3 seconds
 				header('Refresh: 3; URL=index.php');
 				// We throw a Throwable to display a message
