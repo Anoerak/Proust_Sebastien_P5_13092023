@@ -1,9 +1,7 @@
 <?php
 
 // We define our database connection constants
-// WINDOWS
-// define('DB_HOST', 'your-db-urk');
-// define('DB_PORT', 'port');
+// WINDOWS will use define('DB_HOST', 'your-db-urk'); anddefine('DB_PORT', 'port');
 // MAC
 define('DB_HOST', 'your-db-urk');
 define('DB_PORT', 'port');
