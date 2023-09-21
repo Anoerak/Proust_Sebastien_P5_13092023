@@ -1,5 +1,4 @@
 <!-- We display the content of a post in this view: -->
-
 <section class="post__detail__container">
 	<div class="top"></div>
 	<article>
@@ -14,18 +13,18 @@
 		<p class="post__dates">Publish by <span class="post__author"><?= $datas->author_username ?></span> on
 			<?= $datas->created_at ?></p>
 		<?php if ($datas->updated_at !== null) : ?>
-			<p class="post__dates">Edited on <?= $datas->updated_at ?></p>
+		<p class="post__dates">Edited on <?= $datas->updated_at ?></p>
 		<?php endif; ?>
 		<br>
 		<?php
 		session_start();
 		if (isset($_SESSION['logged_user']) && $_SESSION['privileges']['privilege'] === 'admin') : ?>
-			<br>
-			<br>
-			<div class="post__edition">
-				<a href="index.php?page=post&action=update&option=get&id=<?= $datas->id ?>" class="main__button">Update</a>
-				<a href="index.php?page=post&action=delete&id=<?= $datas->id ?>" class="delete__button">Delete</a>
-			</div>
+		<br>
+		<br>
+		<div class="post__edition">
+			<a href="index.php?page=post&action=update&option=get&id=<?= $datas->id ?>" class="main__button">Update</a>
+			<a href="index.php?page=post&action=delete&id=<?= $datas->id ?>" class="delete__button">Delete</a>
+		</div>
 		<?php endif; ?>
 	</article>
 	<div class="bottom"></div>

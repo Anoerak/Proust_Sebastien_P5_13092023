@@ -46,22 +46,38 @@ class ControllerConstructor extends ModelConstructorController
 		if (isset($this->actions[$page])) {
 			if (isset($this->actions[$page][$action])) {
 				if (is_callable($this->actions[$page][$action])) {
-					// If the action is a function, call it with the option
-					$result = ($this->actions[$page][$action])($option);
+					try {
+						// If the action is a function, call it with the option
+						$result = ($this->actions[$page][$action])($option);
+					} catch (Exception $e) {
+						Tools::error($e->getMessage(), $e->getCode());
+					}
 				} else if (isset($this->actions[$page][$action][$option]) && is_callable($this->actions[$page][$action][$option])) {
-					// If the option is a function, call it
-					$result = ($this->actions[$page][$action][$option])();
+					try {
+						// If the option is a function, call it
+						$result = ($this->actions[$page][$action][$option])();
+					} catch (Exception $e) {
+						Tools::error($e->getMessage(), $e->getCode());
+					}
 				} else if (isset($this->actions[$page][$action]['_']) && is_callable($this->actions[$page][$action]['_'])) {
-					// If there's a default function for this action, call it
-					$result = ($this->actions[$page][$action]['_'])();
+					try {
+						// If there's a default function for this action, call it
+						$result = ($this->actions[$page][$action]['_'])();
+					} catch (Exception $e) {
+						Tools::error($e->getMessage(), $e->getCode());
+					}
 				}
 			}
 		}
 
 		// If the action is not in the array, we check if the page is in the array
 		if (!isset($result)) {
-			// Default case
-			$result = ['title' => ucfirst($page), 'template' => $page . '/' . $page];
+			try {
+				// Default case
+				$result = ['title' => ucfirst($page), 'template' => $page . '/' . $page];
+			} catch (Exception $e) {
+				Tools::error($e->getMessage(), $e->getCode());
+			}
 		}
 
 		$this->title .= $result['title'];
@@ -69,7 +85,11 @@ class ControllerConstructor extends ModelConstructorController
 
 		// We call the parent method to get the datas
 		if (empty($this->datas)) {
-			$this->datas = parent::buildModelMethod($page, $action, $option, $id);
+			try {
+				$this->datas = parent::buildModelMethod($page, $action, $option, $id);
+			} catch (Exception $e) {
+				Tools::error($e->getMessage(), $e->getCode());
+			}
 		}
 		$this->view = new View($this->templatePath, $this->title);
 		$this->view->render(array('title' => $this->title, 'page' => $page, 'datas' => $this->datas, 'filter' => $option));
