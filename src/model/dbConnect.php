@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../config/config.php';
+require_once __DIR__ . '/../../config/config.local.php';
 abstract class DbConnect
 {
 	// PDO Object to connect to the database
