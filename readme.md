@@ -49,10 +49,10 @@ inspired by Apple IOS and iPadOS. Here is a list of the API used in this project
 
 ## Screenshots
 
-<img src="./public/img/screenshots/home.webp" alt="Home">
-<img src="./public/img/screenshots/projects.webp" alt="Projects">
-<img src="./public/img/screenshots/about.webp" alt="About">
-<img src="./public/img/screenshots/user.webp" alt="User Profile">
+<img src="./public/img/home.webp" alt="Home">
+<img src="./public/img/projects.webp" alt="Projects">
+<img src="./public/img/about.webp" alt="About">
+<img src="./public/img/user.webp" alt="User Profile">
 
 ## License
 
