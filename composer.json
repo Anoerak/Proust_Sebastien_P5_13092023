@@ -1,18 +1,11 @@
 {
-    "name": "sebastien/myportfolio",
-    "description": "A vanilla php portfolio with a UI/UX inspired by Apple",
-    "type": "project",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Sebastien\\Myportfolio\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Anørak",
-            "email": "seb@iamseb.dev"
-        }
-    ],
-    "require": {}
+	"name": "sebastien/myportfolio",
+	"description": "A vanilla php portfolio with a UI/UX inspired by IOS",
+	"authors": [
+		{
+			"name": "Anørak",
+			"email": "seb@iamseb.dev"
+		}
+	],
+	"require": {}
 }

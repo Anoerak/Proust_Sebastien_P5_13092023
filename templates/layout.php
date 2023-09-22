@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="../src/lib/style/style.css">
 
 	<?php
-	require_once __DIR__ . '/../config/config.local.php';
+	require_once __DIR__ . '/../config/config.php';
 	if (isset($_GET['page']) && array_key_exists($_GET['page'], RESOURCES)) {
 		foreach (RESOURCES[$_GET['page']] as $resource) {
 			echo $resource;
