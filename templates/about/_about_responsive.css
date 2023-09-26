@@ -9,15 +9,15 @@
 
 	body section.about__container main .first_row .card,
 	body section.about__container main .second_row .card {
-		width: 100%;
+		width: 100% !important;
 	}
 
 	body section.about__container main .first_row .music.card iframe {
-		height: 450px;
+		height: 450px !important;
 	}
 
 	body section.about__container main .first_row .infos.card {
-		width: calc(100% - 2rem);
+		width: calc(100% - 2rem) !important;
 		height: 500px;
 	}
 
@@ -26,19 +26,96 @@
 	}
 
 	body section.about__container main .second_row .education.card {
-		width: calc(100% - 1rem);
+		width: calc(100% - 1rem) !important;
 		margin: 0;
 
 	}
 
 	body section.about__container main .second_row .weather.card {
-		width: calc(100% - 1rem);
+		width: calc(100% - 1rem) !important;
 		margin: 0;
 
 	}
 
 	body section.about__container main .third__row img {
+		width: 100% !important;
+	}
+
+}
+
+
+@media screen and (width < 1120px) and (orientation: portrait) {
+
+	/* #Region First Row */
+	body section.about__container main .first_row {
+		flex-wrap: wrap;
+	}
+
+	body section.about__container main .first_row .music.card iframe {
+		height: 450px;
+	}
+
+	body section.about__container main .first_row .card:nth-child(1) {
+		order: 1;
+		width: 45.5%;
+		height: 450px;
+	}
+
+	body section.about__container main .first_row .card:nth-child(2) {
+		order: 3;
 		width: 100%;
+		height: 225px;
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) {
+		order: 2;
+		width: 45.5%;
+		height: calc(450px - 2rem);
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) h2 {
+		font-size: 1.25rem;
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) h3 {
+		font-size: 1rem;
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) P {
+		font-size: .9rem;
+	}
+
+	/* #endregion */
+
+	/* #Region Second Row */
+	body section.about__container main .second_row {
+		flex-wrap: wrap;
+	}
+
+	body section.about__container main .second_row .card:nth-child(1) {
+		order: 2;
+		width: 45%;
+	}
+
+	body section.about__container main .second_row .card:nth-child(1) .slide {
+		background-size: cover;
+	}
+
+	body section.about__container main .second_row .card:nth-child(2) {
+		order: 1;
+		width: 100%;
+		height: 450px;
+		margin: 0;
+		display: block;
+	}
+
+	body section.about__container main .second_row .card:nth-child(3) {
+		order: 3;
+		width: 45%;
+	}
+
+	body section.about__container main .second_row .card:nth-child(2) .title {
+		margin: 0;
 	}
 
 }
