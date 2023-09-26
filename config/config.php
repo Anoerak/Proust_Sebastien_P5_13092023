@@ -18,44 +18,44 @@ define(
 	'RESOURCES',
 	[
 		'contact' => [
-			'<link rel="stylesheet" href="../templates/contact/contact.css">',
+			'<link rel="stylesheet" href="../templates/pages/contact/contact.css">',
 		],
 		'blog' => [
-			'<script defer src="../templates/blog/blog.js" type="module"></script>',
-			'<link rel="stylesheet" href="../templates/blog/blog.css">',
+			'<script defer src="../templates/pages/blog/blog.js" type="module"></script>',
+			'<link rel="stylesheet" href="../templates/pages/blog/blog.css">',
 		],
 		'about' => [
-			'<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></>',
-			'<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>',
-			'<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/ModifiersPlugin.min.js"></script>',
-			'<script defer src="../templates/about/about.js" type="module"></script>',
 			'<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />',
-			'<link rel="stylesheet" href="../templates/about/about.css">'
+			'<link rel="stylesheet" href="../templates/pages/about/about.css">',
+			'<script defer src="../templates/pages/about/about.js" type="module"></script>',
+			'<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>',
+			'<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>',
+			'<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/ModifiersPlugin.min.js"></script>',
 		],
 		'privacyPolicy' => [
-			'<link rel="stylesheet" href="../templates/privacyPolicy/privacyPolicy.css">',
+			'<link rel="stylesheet" href="../templates/pages/privacyPolicy/privacyPolicy.css">',
 		],
 		'login' => [
-			'<link rel="stylesheet" href="../templates/login/login.css">',
+			'<link rel="stylesheet" href="../templates/pages/login/login.css">',
 		],
 		'signup' => [
-			'<link rel="stylesheet" href="../templates/signup/signup.css">',
+			'<link rel="stylesheet" href="../templates/pages/signup/signup.css">',
 		],
 		'userProfile' => [
-			'<link rel="stylesheet" href="../templates/userProfile/userProfile.css">',
+			'<link rel="stylesheet" href="../templates/pages/userProfile/userProfile.css">',
 		],
 		'post' => [
-			'<link rel="stylesheet" href="../templates/post/postView.css">',
-			'<link rel="stylesheet" href="../templates/post/postAdd.css">',
-			'<link rel="stylesheet" href="../templates/post/postUpdate.css">',
-			'<link rel="stylesheet" href="../templates/comment/comment.css">',
-			'<link rel="stylesheet" href="../templates/comment/commentAdd.css">',
+			'<link rel="stylesheet" href="../templates/pages/post/postView.css">',
+			'<link rel="stylesheet" href="../templates/pages/post/postAdd.css">',
+			'<link rel="stylesheet" href="../templates/pages/post/postUpdate.css">',
+			'<link rel="stylesheet" href="../templates/pages/comment/comment.css">',
+			'<link rel="stylesheet" href="../templates/pages/comment/commentAdd.css">',
 		],
-		'loading' => [
-			'<link rel="stylesheet" href="../templates/loading/loading.css">',
+		'rules' => [
+			'<link rel="stylesheet" href="../templates/pages/rules/rules.css">',
 		],
-		'error' => [
-			'<link rel="stylesheet" href="../templates/error/error.css">',
+		'subscribe' => [
+			'<link rel="stylesheet" href="../templates/pages/subscribe/subscribe.css">',
 		],
 	]
 );

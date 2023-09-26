@@ -1,6 +1,6 @@
 <?php
 
-require_once "./src/model/dbConnect.php";
+require_once "./src/Services/dbConnect.php";
 
 class Tools
 {

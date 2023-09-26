@@ -1,7 +1,7 @@
 <?php
 
 require_once './templates/view.php';
-require_once './src/controllers/constructor/ControllerConstructor.php';
+require_once './src/Controller/ControllerConstructor.php';
 
 
 class Router

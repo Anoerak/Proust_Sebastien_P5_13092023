@@ -12,7 +12,7 @@ class View
     public function __construct($templatePath, $title)
     {
         // Define the view file
-        $this->file = "templates/" . $templatePath . ".php";
+        $this->file = "templates/pages/" . $templatePath . ".php";
         $this->title = $title;
     }
 

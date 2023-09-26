@@ -5,9 +5,9 @@
 @import '../../../templates/components/header/header.css';
 @import '../../../templates/components/footer/footer.css';
 
-@import '../../../templates/home/home.css';
-@import '../../../templates/loading/loading.css';
-@import '../../../templates/error/error.css';
+@import '../../../templates/pages/home/home.css';
+@import '../../../templates/pages/loading/loading.css';
+@import '../../../templates/pages/error/error.css';
 
 :root {
 	--primary-color: #f7fbff;
