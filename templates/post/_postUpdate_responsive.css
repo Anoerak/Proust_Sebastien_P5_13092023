@@ -1,0 +1,22 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.update__post h1 {
+		width: 90%;
+		text-align: left;
+	}
+
+	body section.update__post .update__post__form {
+		width: 90%;
+	}
+
+	body section.update__post .update__post__form form .form__group .input__container {
+		width: 90%;
+	}
+
+	body section.update__post .update__post__form form .form__group .input__container img {
+		max-width: 100%;
+	}
+
+	body section.update__post .update__post__form form .update__validation__area {
+		justify-content: space-between;
+	}
+}

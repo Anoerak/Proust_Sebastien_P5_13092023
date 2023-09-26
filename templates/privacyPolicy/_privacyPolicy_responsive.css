@@ -1,0 +1,13 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body article.privacy__policy__container {
+		width: 90%;
+	}
+
+	body article.privacy__policy__container h1 {
+		font-size: 1.5rem;
+	}
+
+	body article.privacy__policy__container p {
+		font-size: 1rem;
+	}
+}

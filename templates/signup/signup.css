@@ -1,3 +1,5 @@
+@import './_signup_responsive.css';
+
 section.signup__container {
 	align-items: center;
 	background-image: url('../../src/lib/imgs/wallpaper.webp');

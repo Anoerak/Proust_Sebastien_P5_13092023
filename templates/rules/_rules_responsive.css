@@ -1,0 +1,9 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.blog__rules {
+		width: 90%;
+	}
+
+	body section.blog__rules h1 {
+		font-size: 1.5rem;
+	}
+}

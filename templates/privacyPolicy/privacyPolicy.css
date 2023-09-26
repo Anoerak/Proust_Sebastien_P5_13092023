@@ -1,3 +1,5 @@
+@import './_privacyPolicy_responsive.css';
+
 article.privacy__policy__container {
 	align-items: center;
 	display: flex;

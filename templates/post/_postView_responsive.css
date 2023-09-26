@@ -1,0 +1,13 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.post__detail__container article {
+		width: 90%;
+	}
+
+	body section.post__detail__container article img {
+		max-width: 100%;
+	}
+
+	body section.comments__container {
+		width: 90%;
+	}
+}

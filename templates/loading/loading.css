@@ -1,3 +1,5 @@
+@import './_loading_responsive.css';
+
 section.loading__container {
 	align-items: center;
 	display: flex;

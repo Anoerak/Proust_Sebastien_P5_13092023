@@ -1,0 +1,44 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+
+	body section.about__container main .first_row,
+	body section.about__container main .second_row,
+	body section.about__container main .third__row {
+		flex-direction: column;
+		height: auto;
+	}
+
+	body section.about__container main .first_row .card,
+	body section.about__container main .second_row .card {
+		width: 100%;
+	}
+
+	body section.about__container main .first_row .music.card iframe {
+		height: 450px;
+	}
+
+	body section.about__container main .first_row .infos.card {
+		width: calc(100% - 2rem);
+		height: 500px;
+	}
+
+	body section.about__container main .second_row .photos.card .slide {
+		background-size: cover;
+	}
+
+	body section.about__container main .second_row .education.card {
+		width: calc(100% - 1rem);
+		margin: 0;
+
+	}
+
+	body section.about__container main .second_row .weather.card {
+		width: calc(100% - 1rem);
+		margin: 0;
+
+	}
+
+	body section.about__container main .third__row img {
+		width: 100%;
+	}
+
+}

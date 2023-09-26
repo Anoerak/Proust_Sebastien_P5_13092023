@@ -1,3 +1,5 @@
+@import './_rules_responsive.css';
+
 section.blog__rules {
 	align-items: center;
 	display: flex;

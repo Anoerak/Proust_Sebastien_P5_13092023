@@ -1,3 +1,5 @@
+@import './_header_responsive.css';
+
 header {
 	height: 4rem;
 	backdrop-filter: blur(15px) saturate(86%);
@@ -189,4 +191,28 @@ header .logged_in__section a button.signup {
 header .login_up__section a button.signup:hover,
 header .logged_in__section a button.signup:hover {
 	transform: scale(1.1);
+}
+
+
+/*
+|----------------------------------------
+| Responsive Menu
+|----------------------------------------
+*/
+header .responsive__menu {
+	/*Display stuff*/
+	display: none;
+	cursor: pointer;
+}
+
+header .responsive__menu img {
+	/*Box model stuff*/
+	width: 30px;
+	height: 30px;
+	margin: 1rem;
+	filter: invert(1);
+}
+
+header nav ul li.responsive__log-in-out {
+	display: none;
 }

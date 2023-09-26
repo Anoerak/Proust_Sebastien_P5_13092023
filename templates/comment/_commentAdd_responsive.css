@@ -1,0 +1,19 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.comment__add_container {
+		width: 100%;
+	}
+
+	body section.comment__add_container h1 {
+		font-size: 1.5rem;
+	}
+
+	body section.comment__add_container form,
+	body section.comment__add_container form .form-group,
+	body section.comment__add_container form .form-group textarea {
+		width: 100%;
+	}
+
+	body section.comment__add_container form .form-group textarea {
+		width: 330px;
+	}
+}

@@ -1,0 +1,16 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.user__profile__container .main__container {
+		width: 90%;
+		flex-direction: column;
+	}
+
+	body section.user__profile__container .main__container .left__container {
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+
+	body section.user__profile__container .main__container .right__container {
+		width: 100%;
+
+	}
+}

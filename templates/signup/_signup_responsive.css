@@ -1,0 +1,9 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.signup__container .signup__form {
+		width: calc(100% - 1rem);
+	}
+
+	body section.signup__container .signup__form .header .title h1 {
+		font-size: 1.5rem;
+	}
+}

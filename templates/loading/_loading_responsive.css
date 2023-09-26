@@ -1,0 +1,5 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.loading__container .loading.loading_message {
+		width: calc(100% - 6rem);
+	}
+}

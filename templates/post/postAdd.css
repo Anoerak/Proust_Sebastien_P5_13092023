@@ -1,3 +1,5 @@
+@import './_postAdd_responsive.css';
+
 section.add__post {
 	align-items: center;
 	display: flex;

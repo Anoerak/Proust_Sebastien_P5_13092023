@@ -1,3 +1,5 @@
+@import './_contact_responsive.css';
+
 section.contact__container {
 	align-items: center;
 	background-image: url('../../src/lib/imgs/wallpaper.webp');

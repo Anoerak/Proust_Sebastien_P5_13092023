@@ -1,3 +1,5 @@
+@import './_blog_responsive.css';
+
 section.project__container {
 	align-items: center;
 	display: flex;

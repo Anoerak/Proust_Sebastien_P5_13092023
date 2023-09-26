@@ -1,0 +1,7 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.login__container .login__form {
+		width: calc(100% - 1rem);
+		height: auto;
+		padding-top: 2rem;
+	}
+}

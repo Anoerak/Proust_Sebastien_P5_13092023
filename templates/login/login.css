@@ -1,3 +1,5 @@
+@import './_login_responsive.css';
+
 section.login__container {
 	align-items: center;
 	background-image: url('../../src/lib/imgs/wallpaper.webp');

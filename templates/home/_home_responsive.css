@@ -1,0 +1,25 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.hero__container {
+		width: calc(100% - 2rem);
+	}
+
+	body section.hero__container .cards__container {
+		width: 100%;
+		flex-direction: column;
+	}
+
+	body section.hero__container .cards__container .card__techno__container {
+		width: 90%;
+		height: auto;
+	}
+
+	body section.summary__container .drawer__container {
+		flex-direction: column;
+	}
+
+	body section.summary__container .drawer__container article.about,
+	body section.summary__container .drawer__container article.projects,
+	body section.summary__container .drawer__container article.contact {
+		width: 90%;
+	}
+}

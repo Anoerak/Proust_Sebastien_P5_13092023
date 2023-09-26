@@ -1,0 +1,129 @@
+/* Responsive for smartphone in portrait mode */
+
+@media screen and (width < 776px) and (orientation: portrait) {
+
+	body header {
+		z-index: 10;
+		position: fixed;
+	}
+
+	body header nav,
+	body header .login_up__section,
+	body header .logged_in__section {
+		display: none;
+	}
+
+	body header .responsive__menu {
+		display: block;
+		position: relative;
+	}
+
+	body header nav {
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	body header nav ul {
+		padding: 3rem 1rem 1rem 1rem;
+		flex-direction: column;
+		border-radius: 0;
+		width: calc(100% - 2rem);
+	}
+
+	body header nav ul li {
+		align-items: flex-start;
+		min-width: 160px;
+	}
+
+	body header nav ul li.responsive__log-in-out {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	body header nav ul li.responsive__log-in-out a {
+		width: 100%;
+	}
+
+	body header nav ul li.responsive__log-in-out a button {
+		width: 6rem;
+		/*Box model stuff*/
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 10rem;
+		/*Typography stuff*/
+		font-size: 1rem;
+		font-weight: 500;
+		/*Manipulations stuff*/
+		transition: var(--default-transition);
+		/*Miscellaneous*/
+		cursor: pointer;
+	}
+
+	body header nav ul li.responsive__log-in-out a button.login {
+		/*Box model stuff*/
+		background-color: black;
+		/*Typography stuff*/
+		color: white;
+	}
+
+	body header nav ul li.responsive__log-in-out a button.signup {
+		/*Box model stuff*/
+		background-color: var(--secondary-color);
+		/*Typography stuff*/
+		color: var(--text-color-light);
+	}
+
+	body header nav ul li.responsive__log-in-out a button.login:hover,
+	body header nav ul li.responsive__log-in-out a button.signup:hover {
+		transform: scale(1.1);
+	}
+
+	body header nav ul li a {
+		font-size: 1.5rem;
+		width: 100%;
+		align-items: center;
+		justify-content: flex-start;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* We create an animation opening the menu from top right to full screen */
+@keyframes openMenu {
+	from {
+		transform: translateY(-100%);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes closeMenu {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(-100%);
+	}
+}

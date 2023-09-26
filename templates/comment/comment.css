@@ -1,3 +1,5 @@
+@import './_comment_responsive.css';
+
 section.comments__container {
 	margin-top: 4rem;
 	width: 75%;

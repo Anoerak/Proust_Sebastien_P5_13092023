@@ -1,0 +1,13 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body section.contact__container .contact__form {
+		width: calc(100% - 1rem);
+	}
+
+	body section.contact__container .contact__form .header .title h1 {
+		font-size: 1.5rem;
+	}
+
+	body section.contact__container .contact__form form .input__container {
+		width: 80%;
+	}
+}

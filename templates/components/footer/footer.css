@@ -1,3 +1,5 @@
+@import './_footer_responsive.css';
+
 footer {
 	/*Display stuff*/
 	display: flex;

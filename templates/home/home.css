@@ -1,3 +1,5 @@
+@import './_home_responsive.css';
+
 section.hero__container {
 	/*Display stuff*/
 	display: flex;
@@ -150,7 +152,7 @@ section.hero__container .profile__card__main__container .user__info .user-name {
 
 section.hero__container .profile__card__main__container .user__info .email {
 	/*Box model stuff*/
-	margin-left: -4rem;
+	margin-left: -1rem;
 	margin-top: 5px;
 	/*Typography stuff*/
 	font-size: 17px;

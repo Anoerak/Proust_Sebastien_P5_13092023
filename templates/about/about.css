@@ -1,3 +1,5 @@
+@import './_about_responsive.css';
+
 /* Main heading */
 section.about__container {
 	align-items: center;
@@ -406,8 +408,8 @@ section.about__container main .second_row .weather .bottom .bottom__hour .bottom
 }
 
 section.about__container main .second_row .weather .bottom .bottom__hour .bottom__hour__icon img {
-	width: 4rem;
-	height: 4rem;
+	width: 3.5rem;
+	height: 3.5rem;
 	margin: 0;
 	padding: 0;
 }

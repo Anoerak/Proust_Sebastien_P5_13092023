@@ -1,0 +1,16 @@
+@media screen and (width < 776px) and (orientation: portrait) {
+	body footer {
+		width: calc(100% - 2rem);
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 0;
+		padding: 0 1rem;
+		height: auto;
+	}
+
+	body footer .website h2,
+	body footer .social h2,
+	body footer .newsletter h2 {
+		font-size: 1.25rem;
+	}
+}
