@@ -26,3 +26,32 @@
 		margin: 0 .5rem;
 	}
 }
+
+@media screen and (width < 1024px) and (orientation: portrait) {
+
+	body .comment__validation .comment__container .comment__infos .comment__status--true,
+	body .comment__validation .comment__container .comment__infos .comment__status--false,
+	body .comment__validation .comment__container .comment__infos .comment__status--pending {
+		font-size: .75rem;
+	}
+
+	body .comment__validation .comment__container button {
+		width: 5rem;
+		font-size: 0.75rem;
+		margin: 0 .5rem;
+	}
+
+	body .comment__validation .comment__actions {
+		max-width: 25%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: .5rem;
+	}
+
+	body .comment__validation .comment__actions button {
+		width: 5rem;
+		font-size: 0.75rem;
+		margin: 0 .5rem;
+	}
+}

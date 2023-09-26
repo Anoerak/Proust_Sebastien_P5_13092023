@@ -3,6 +3,11 @@
 	<div class="top"></div>
 	<article>
 		<h1 class="post__title"><?= $datas->title ?></h1>
+		<div class="github">
+			<a href="<?= $datas->githubLink ?>" target="_blank">
+				<i class="fab fa-github"> GitHub Repository</i>
+			</a>
+		</div>
 		<p class="description"><?= $datas->description ?></p>
 		<img src="<?= $datas->picture ?>" alt="#">
 		<br>
