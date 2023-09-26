@@ -23,3 +23,35 @@
 		width: 90%;
 	}
 }
+
+@media screen and (width < 1024px) and (orientation: portrait) {
+	body section.hero__container {
+		width: calc(100% - 2rem);
+	}
+
+	body section.hero__container .cards__container {
+		width: 100%;
+		flex-direction: column;
+	}
+
+	body section.hero__container .cards__container .card__techno__container {
+		width: 90%;
+		height: auto;
+	}
+
+	body section.summary__container .drawer__container {
+		flex-direction: column;
+	}
+
+	body section.summary__container .drawer__container article.about,
+	body section.summary__container .drawer__container article.projects,
+	body section.summary__container .drawer__container article.contact {
+		width: 90%;
+	}
+
+	body section.summary__container .drawer__container article.about a,
+	body section.summary__container .drawer__container article.projects a,
+	body section.summary__container .drawer__container article.contact a {
+		margin-bottom: 3rem;
+	}
+}

@@ -10,7 +10,7 @@
 	body header nav,
 	body header .login_up__section,
 	body header .logged_in__section {
-		display: none;
+		display: none !important;
 	}
 
 	body header .responsive__menu {
@@ -88,7 +88,32 @@
 	}
 }
 
+/* Responsive for tablet in portrait mode */
 
+@media screen and (width < 1024px) and (orientation: portrait) {
+	body header nav ul li a {
+		font-size: 1rem;
+	}
+
+	body header .login_up__section,
+	body header .logged_in__section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: .5rem;
+	}
+
+	body header .login_up__section a,
+	body header .logged_in__section a {
+		padding: 0;
+	}
+
+	body header .login_up__section a button,
+	body header .logged_in__section a button {
+		width: 5rem;
+		font-size: .75rem;
+	}
+}
 
 
 

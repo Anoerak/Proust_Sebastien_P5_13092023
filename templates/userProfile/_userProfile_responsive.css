@@ -1,16 +1,33 @@
 @media screen and (width < 776px) and (orientation: portrait) {
 	body section.user__profile__container .main__container {
-		width: 90%;
+		width: 90% !important;
 		flex-direction: column;
 	}
 
 	body section.user__profile__container .main__container .left__container {
-		width: 100%;
+		width: 100% !important;
 		margin-bottom: 2rem;
 	}
 
 	body section.user__profile__container .main__container .right__container {
-		width: 100%;
+		width: 100% !important;
+	}
 
+	body section.user__profile__container .main__container .right__container form .input__container {
+		width: 100% !important;
+	}
+}
+
+@media screen and (width < 1120px) and (orientation: portrait) {
+	body section.user__profile__container .main__container .right__container {
+		width: 75%;
+	}
+
+	body section.user__profile__container .main__container .right__container form {
+		flex-wrap: wrap;
+	}
+
+	body section.user__profile__container .main__container .right__container form .input__container {
+		width: 40%;
 	}
 }
