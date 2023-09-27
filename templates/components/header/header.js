@@ -12,10 +12,11 @@ if (responsiveMenuBtn) {
 		if (responsiveMenu.style.display === 'block') {
 			setTimeout(() => {
 				responsiveMenu.style.display = 'none';
+				responsiveMenuLogInOut.style.display === 'none';
 			}, 500);
 		} else {
 			responsiveMenu.style.display = 'block';
+			responsiveMenuLogInOut.style.display = 'flex';
 		}
-		responsiveMenuLogInOut.style.display = responsiveMenuLogInOut.style.display === 'flex' ? 'none' : 'flex';
 	});
 }

@@ -1,20 +1,21 @@
 <?php
 
-require_once "./src/Services/dbConnect.php";
+require_once "./src/Repository/MainRepository.php";
+require_once "./src/lib/tools/Tools.php";
 
-class Comment extends databaseConnect
+class Comment
 {
 	public int $id;
 	public int $post_id;
 	public int $user_id;
 	public string $author_username;
 	public string $content;
-	public $content_status;
+	public string $content_status;
 	public string $created_at;
 	public $updated_at;
 	public string $validation_status;
 
-	public function __construct($id = null, $post_id = null, $user_id = null, $author_username = null, $content = null, $content_status = null, $created_at = null, $updated_at = null, $validation_status = null)
+	public function __construct($id = null, $post_id = null, $user_id = null, $author_username = '', $content = null, $content_status = null, $created_at = null, $updated_at = null, $validation_status = null)
 	{
 		$this->id = $id;
 		$this->post_id = $post_id;
@@ -27,130 +28,142 @@ class Comment extends databaseConnect
 		$this->validation_status = $validation_status;
 	}
 
-	/* #Region getComments */
-	public static function getComments($post_id)
+	public static function getAll(int $post_id)
 	{
 		$comments = array();
-		// We get all the comments from the database
-		$sql = parent::executeRequest("SELECT * FROM comment WHERE post_id = ? ORDER BY created_at ASC", array($post_id));
-		// We create an array of Comment objects
-		while ($comment = $sql->fetch(PDO::FETCH_ASSOC)) {
-			$comments[] = new Comment($comment['id'], $comment['post_id'], $comment['user_id'], '', $comment['content'], '', $comment['created_at'], $comment['updated_at'], $comment['validation_status']);
-		}
-		// We add the author's username to each comment
-		foreach ($comments as $comment) {
-			$author = User::getUser($comment->user_id);
-			$comment->author_username = $author->username;
-			// We replace the date value with the format we want
-			$comment->created_at = Tools::formatDate($comment->created_at);
-			if ($comment->updated_at !== null) {
-				$comment->updated_at = Tools::formatDate($comment->updated_at);
-			}
-			if ($comment->validation_status === 'unpublished') {
-				$comment->content_status = '<font color="#ff5353">
+		$repo = new MainRepository("comment");
+		// We check if the request returned at least one result
+		if ($repo->getAll('post_id', $post_id, 'DESC') > 0) {
+			// We get the results
+			$results = $repo->getAll('post_id', $post_id, 'DESC');
+			// We loop through the results
+			foreach ($results as $result) {
+				// We create a new comment object, we replace the dates with a formatted date and we add the author username to the object
+				$comment = new Comment(
+					$result["id"],
+					$result["post_id"],
+					$result["user_id"],
+					'Anonymous',
+					$result["content"],
+					'Temporary content status',
+					$result["created_at"],
+					$result["updated_at"],
+					$result["validation_status"],
+				);
+				$comment->author_username = User::getOne($result["user_id"])->username;
+				$comment->created_at = Tools::formatDate($result["created_at"]);
+				if ($comment->updated_at !== null) {
+					$comment->updated_at = Tools::formatDate($result["updated_at"]);
+				}
+				if ($comment->validation_status === 'unpublished') {
+					$comment->content_status = '<font color="#ff5353">
 					Attention, blog-o-sphere!<br>
 					Unfortunately, this comment has been removed for not following the <a href="index.php?page=rules">rules</a> of my legendary blog.<br>
 					So, if you want your comment to be seen by the world, make sure you follow these simple rules.<br>
 					And if you don\'t, well, let\'s just say you\'ll be getting a visit from the comment-blocking hammer.<br>
 					Suit up!</font>';
-			} elseif ($comment->validation_status === 'pending') {
-				// We replace the comment's content with a message if it's pending
-				$comment->content_status = '<font color="#9fa4ac">
+				} elseif ($comment->validation_status === 'pending') {
+					$comment->content_status = '<font color="#9fa4ac">
 					<em><b>Blog-o-sphere, gather around!</b><br>
 					There\'s a new comment on my latest post that\'s waiting for my legendary approval. And let me tell you, I take this responsibility very seriously.<br>
 					So, if you\'re waiting for your comment to be published, don\'t worry, it\'s in good hands. And if it doesn\'t make the cut, well, let\'s just say it\'s not you, it\'s me.<br>
 					Suit up!</em></font>
 					';
+				}
+				// We add the comment to the comments array
+				array_push($comments, $comment);
 			}
+
+			return $comments;
 		}
-		return $comments;
 	}
-	/* #EndRegion */
 
-
-	/* #Region Add a comment */
-	public static function addComment($post_id)
+	public static function create(int $post_id)
 	{
 		if (empty($_POST['comment'])) {
-			throw new Exception('Your comment is empty, come on, you can do better.', 400);
+			header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $post_id . '#add-comment');
+			throw new Exception('You must fill in all the fields.', 500);
 		} else {
+			$repo = new MainRepository("comment");
 			session_start();
-			$sql = parent::executeRequest("INSERT INTO comment (post_id, user_id, content) VALUES (?,?,?)", array($post_id, $_SESSION['user_id'], $_POST['comment']));
-			if (!$sql) {
-				throw new Exception('Something went wrong, please try again.', 500);
+			$repo->create(
+				[
+					'post_id' => $post_id,
+					'user_id' => $_SESSION['user_id'],
+					'content' => $_POST['comment']
+				]
+			);
+			// We check if the comment has been created
+			if ($repo->getAll('post_id', $post_id, null) > 0) {
+				$comments = $repo->getAll('post_id', $post_id, null);
+				$lastComment = end($comments);
+				$newCommentId = $lastComment['id'];
+				header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $post_id . '#' . $newCommentId);
+				throw new Exception('Your comment has been posted.', 200);
 			} else {
-				// We get the id of the comment
-				$newCommentId = parent::getLastInsertedId();
-				header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $post_id . '#' . $newCommentId);
-				throw new Exception('Congrats folk, your awesome comment is now waiting for my legendary approval!', 200);
+				throw new Exception('An error occurred while posting your comment.', 500);
 			}
 		}
 	}
-	/* #EndRegion */
 
-
-	/* #Region Update a comment */
-	public static function updateComment($id)
+	public static function update(int $id)
 	{
 		if (empty($_POST['comment'])) {
-			throw new Exception('Your comment is empty, come on, you can do better.', 400);
+			header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $_GET['post_id'] . '#' . $id);
+			throw new Exception('You must fill in all the fields.', 500);
 		} else {
-			// We update the comment
-			$sql = parent::executeRequest("UPDATE comment SET content = (?), validation_status = 'pending'  WHERE id = ?", array($_POST['comment'], $id));
-			if (!$sql) {
-				throw new Exception('Something went wrong, please try again.', 500);
+			$repo = new MainRepository("comment", $id);
+			$repo->update(
+				[
+					'content' => $_POST['comment'],
+				]
+			);
+			if (!$repo) {
+				throw new Exception('An error occurred while updating your comment.', 500);
 			} else {
-				header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id'] . '#' . $id);
-				throw new Exception('Congrats folk, your update is now waiting for my legendary approval!', 200);
+				header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $_GET['post_id'] . '#' . $id);
+				throw new Exception('Your comment has been updated.', 200);
 			}
 		}
 	}
-	/* #EndRegion */
 
-
-	/* #Region Delete a comment */
-	public static function deleteComment($id)
+	public static function delete(int $id)
 	{
-		// We delete the comment
-		$sql = parent::executeRequest("DELETE FROM comment WHERE id = ?", array($id));
-		if (!$sql) {
-			throw new Exception('Something went wrong, please try again.', 500);
+		$repo = new MainRepository("comment", $id);
+		$repo->delete();
+		if (!$repo) {
+			throw new Exception('An error occurred while deleting your comment.', 500);
 		} else {
-			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id']);
-			throw new Exception('This comment is now deleted and can\'t be publish anymore!', 200);
+			header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $_GET['post_id']);
+			throw new Exception('Your comment has been deleted.', 200);
 		}
 	}
-	/* #EndRegion */
 
-
-	/* #Region Refuse a comment */
-	public static function refuseComment($id)
+	public static function publish(int $id)
 	{
-		$status = 'unpublished';
-		// We update the comment validation_status
-		$sql = parent::executeRequest("UPDATE comment SET validation_status = (?) WHERE id = ?", array($status, $id));
-		if (!$sql) {
-			throw new Exception('Something went wrong, please try again.', 500);
+		$repo = new MainRepository('comment', $id);
+		$repo->publishComment([
+			'validation_status' => 'published',
+		]);
+		if (!$repo) {
+			throw new Exception('An error occurred while publishing your comment', 500);
 		} else {
-			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id'] . '#' . $id);
-			throw new Exception('This comment is now unavailable for all users!', 200);
-		}
-	}
-	/* #EndRegion */
-
-
-	/* #Region Validate a comment */
-	public static function validateComment($id)
-	{
-		$status = 'published';
-		// We update the comment validation_status
-		$sql = parent::executeRequest("UPDATE comment SET validation_status = (?) WHERE id =?", array($status, $id));
-		if (!$sql) {
-			throw new Exception('Something went wrong, please try again.', 500);
-		} else {
-			header('Refresh: 3; URL=./index.php?page=post&action=get&option=view&id=' . $_GET['post_id'] . '#' . $id);
+			header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $_GET['post_id'] . '#' . $id);
 			throw new Exception('This comment is now available for all users', 200);
 		}
 	}
-	/* #EndRegion */
+
+	public static function unpublish(int $id)
+	{
+		$repo = new MainRepository('comment', $id);
+		$repo->unpublishComment([
+			'validation_status' => 'unpublished',
+		]);
+		if (!$repo) {
+			throw new Exception('An error occurred while redacting your comment', 500);
+		} else {
+			header('Refresh: 1; URL= index.php?page=post&action=getOne&option=view&id=' . $_GET['post_id'] . '#' . $id);
+			throw new Exception('This comment is now unavailable for all users', 200);
+		}
+	}
 }

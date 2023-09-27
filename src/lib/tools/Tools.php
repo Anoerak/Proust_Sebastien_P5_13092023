@@ -5,7 +5,7 @@ require_once "./src/Services/dbConnect.php";
 class Tools
 {
 	/* #Region We manage the errors and we display them in a modal */
-	static public function error($msgError, $code)
+	public static function error($msgError, $code)
 	{
 		if ($code >= 400 && $code <= 500) {
 			$view = new View('error/error', 'Error');
@@ -19,7 +19,7 @@ class Tools
 
 
 	/* #Region We format the date to display it in a more readable way */
-	static public function formatDate($dateToFormat)
+	public static function formatDate($dateToFormat)
 	{
 		$date = new DateTime($dateToFormat ?? '');
 		return $date->format('d/m/Y \a\t H:i');
@@ -28,7 +28,7 @@ class Tools
 
 
 	/* #Region We format the date for the birthday input */
-	static public function formatDateForBirthday($dateToFormat)
+	public static function formatDateForBirthday($dateToFormat)
 	{
 		if (!empty($dateToFormat)) {
 			$date = new DateTime($dateToFormat);
@@ -39,7 +39,7 @@ class Tools
 
 
 	/* #Region We get the picture from the addPost form and we upload it to the server */
-	static public function uploadPicture($pictureOrigin)
+	public static function uploadPicture($pictureOrigin)
 	{
 		// We get the picture's name
 		$pictureName = $_FILES[$pictureOrigin]['name'];
@@ -94,7 +94,7 @@ class Tools
 
 
 	/* #Region We Check if the password is valid */
-	static public function checkPassword($password)
+	public static function checkPassword($password)
 	{
 		// We check if the password is at least 8 characters long, contains at least one uppercase letter, one lowercase letter, one number and one special character
 		if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/', $password)) {
@@ -109,7 +109,7 @@ class Tools
 
 
 	/* #Region We check if the birthday is valid */
-	static public function checkBirthday($birthday)
+	public static function checkBirthday($birthday)
 	{
 		// We check if the birthday is valid, in the format Y-m-d, before today - 18 years and after today - 100 years
 		if (preg_match('/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/', $birthday) && $birthday < date('Y-m-d', strtotime('-18 years')) && $birthday > date('Y-m-d', strtotime('-100 years'))) {
@@ -124,7 +124,7 @@ class Tools
 
 
 	/* #Region We check if the email is valid */
-	static public function checkEmail($email)
+	public static function checkEmail($email)
 	{
 		// We check if the email is valid
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -139,7 +139,7 @@ class Tools
 
 
 	/* #Region A contact form which send an email to the blogmaster and the user */
-	static public function contactForm()
+	public static function contactForm()
 	{
 		// We get the blogmaster's email
 		$blogmasterEmail = "seb@iamseb.dev";
@@ -192,7 +192,7 @@ class Tools
 
 
 	/* #Region The visitor download the resume */
-	static public function downloadResume()
+	public static function downloadResume()
 	{
 		// We get the resume's path
 		$resumePath = "public/files/bro-lific_resume.pdf";
@@ -207,4 +207,35 @@ class Tools
 		readfile($resumePath);
 	}
 	/* #EndRegion */
+
+	public static function checkInput($input)
+	{
+		// We check if the input is not empty
+		if (!empty($input)) {
+			// We check if the input is a string
+			if (is_string($input)) {
+				// We check if the input is not too long
+				if (strlen($input) <= 255) {
+					// We trim the input
+					$input = trim($input);
+					// We remove the slashes
+					$input = stripslashes($input);
+					// We convert the special characters to HTML entities
+					$input = htmlspecialchars($input);
+					return $input;
+					// We return the input
+					return $input;
+				} else {
+					// We return an error message
+					throw new \Exception("Your input is too long. Max length is 255 characters.");
+				}
+			} else {
+				// We return an error message
+				throw new \Exception("Your input should be a string.");
+			}
+		} else {
+			// We return an error message
+			throw new \Exception("Your input should not be empty.");
+		}
+	}
 }

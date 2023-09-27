@@ -21,8 +21,8 @@ class UserConnection extends databaseConnect
 	static public function updateSession($user_id)
 	{
 		// We get the user's informations
-		$userInfos = User::getUser($user_id);
-		$userPrivileges = User::getUserPrivileges($user_id);
+		$userInfos = User::getOne($user_id);
+		$userPrivileges = User::getPrivilege($user_id);
 		$userNewsletter = Newsletter::getStatus($userInfos->email);
 		// We check if the user exists
 		if (!empty($userInfos)) {

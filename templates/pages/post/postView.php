@@ -27,7 +27,8 @@
 		<br>
 		<br>
 		<div class="post__edition">
-			<a href="index.php?page=post&action=update&option=get&id=<?= $datas->id ?>" class="main__button">Update</a>
+			<a href="index.php?page=post&action=getOne&option=update&id=<?= $datas->id ?>"
+				class="main__button">Update</a>
 			<a href="index.php?page=post&action=delete&id=<?= $datas->id ?>" class="delete__button">Delete</a>
 		</div>
 		<?php endif; ?>

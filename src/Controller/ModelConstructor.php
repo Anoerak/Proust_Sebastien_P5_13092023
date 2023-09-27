@@ -10,51 +10,51 @@ abstract class ModelConstructorController
 		switch ($page) {
 			case 'blog':
 				$model = 'Post';
-				$method = 'getPosts';
+				$method = 'getAll';
 				return $this->datas = $model::$method($option);
 				break;
 			case 'post':
 				switch ($action) {
-					case 'get':
-						$modelPost = ucfirst($page);
-						$methodPost = $action . ucfirst($page);
+					case 'getOne':
+						$modelPost = ucfirst((string)$page ?? '');
+						$methodPost = $action;
 						$this->datas = $modelPost::$methodPost($id);
 						$modelComments = 'Comment';
-						$methodComments = 'getComments';
+						$methodComments = 'getAll';
 						$this->datas->comments = $modelComments::$methodComments($id);
 						return $this->datas;
 						break;
-					case 'add':
+					case 'create':
 						switch ($option) {
 							case 'comment':
-								$modelComments = $option;
-								$methodComments = $action . ucfirst($option);
+								$modelComments = ucfirst((string)$option ?? '');
+								$methodComments = $action;
 								$this->datas = $modelComments::$methodComments($id);
 								return $this->datas;
 								break;
 							default:
-								$model = ucfirst($page);
-								$method = $action . ucfirst($page);
+								$model = ucfirst((string)$page ?? '');
+								$method = $action;
 								return $this->datas = $model::$method();
 								break;
 						}
 						break;
 					case 'update':
 						switch ($option) {
-							case 'get':
-								$model = ucfirst($page);
-								$method = $option . ucfirst($page);
+							case 'getOne':
+								$model = ucfirst((string)$page ?? '');
+								$method = $option . ucfirst((string)$page ?? '');
 								return $this->datas = $model::$method($id);
 								break;
 							case 'comment':
 								$modelComments = $option;
-								$methodComments = $action . ucfirst($option);
+								$methodComments = $action;
 								$this->datas = $modelComments::$methodComments($id);
 								return $this->datas;
 								break;
 							default:
-								$model = ucfirst($page);
-								$method = $action . ucfirst($page);
+								$model = ucfirst((string)$page);
+								$method = $action;
 								return $this->datas = $model::$method($id);
 								break;
 						}
@@ -63,25 +63,25 @@ abstract class ModelConstructorController
 						switch ($option) {
 							case 'comment':
 								$modelComments = $option;
-								$methodComments = $action . ucfirst($option);
+								$methodComments = $action;
 								$this->datas = $modelComments::$methodComments($id);
 								return $this->datas;
 								break;
 							default:
-								$model = ucfirst($page);
-								$method = $action . ucfirst($page);
+								$model = ucfirst((string)$page ?? '');
+								$method = $action;
 								return $this->datas = $model::$method($id);
 								break;
 						}
 						break;
-					case 'validate':
+					case 'publish':
 						$model = $option;
-						$method = $action . ucfirst($option);
+						$method = $action;
 						return $this->datas = $model::$method($id);
 						break;
-					case 'refuse':
+					case 'unpublish':
 						$modelComments = $option;
-						$methodComments = $action . ucfirst($option);
+						$methodComments = $action;
 						$this->datas = $modelComments::$methodComments($id);
 						return $this->datas;
 						break;
@@ -90,8 +90,8 @@ abstract class ModelConstructorController
 			case 'signup':
 				switch ($action) {
 					case 'create':
-						$model = ucfirst($option);
-						$method = $action . ucfirst($option);
+						$model = ucfirst((string)$option ?? '');
+						$method = $action;
 						return $this->datas = $model::$method();
 						break;
 				}
@@ -99,12 +99,12 @@ abstract class ModelConstructorController
 			case 'login':
 				switch ($action) {
 					case 'logIn':
-						$model = ucfirst($option);
+						$model = ucfirst((string)$option ?? '');
 						$method = $action;
 						return $this->datas = $model::$method();
 						break;
 					case 'logOut':
-						$model = ucfirst($option);
+						$model = ucfirst((string)$option ?? '');
 						$method = $action;
 						return $this->datas = $model::$method();
 						break;
@@ -112,23 +112,23 @@ abstract class ModelConstructorController
 				break;
 			case 'userProfile':
 				switch ($action) {
-					case 'get':
-						$model = ucfirst($option);
-						$method = $action . ucfirst($option);
+					case 'getOne':
+						$model = ucfirst((string)$option ?? '');
+						$method = $action;
 						$this->datas = $model::$method($id);
 						UserConnection::updateSession($this->datas->id);
 						return $this->datas;
 						break;
 					case 'update':
-						$model = ucfirst($option);
-						$method = $action . ucfirst($option);
+						$model = ucfirst((string)$option ?? '');
+						$method = $action;
 						$this->datas = $model::$method();
 						UserConnection::updateSession($id);
 						return $this->datas;
 						break;
 					case 'delete':
-						$model = ucfirst($option);
-						$method = $action . ucfirst($option);
+						$model = ucfirst((string)$option ?? '');
+						$method = $action;
 						$this->datas = $model::$method($id);
 						return $this->datas;
 						break;
@@ -137,12 +137,12 @@ abstract class ModelConstructorController
 			case 'newsletter':
 				switch ($action) {
 					case 'subscribe':
-						$model = ucfirst($page);
+						$model = ucfirst((string)$page ?? '');
 						$method = $action;
 						return $this->datas = $model::$method();
 						break;
 					case 'unsubscribe':
-						$model = ucfirst($page);
+						$model = ucfirst((string)$page ?? '');
 						$method = $action;
 						return $this->datas = $model::$method();
 						break;
@@ -150,8 +150,8 @@ abstract class ModelConstructorController
 				break;
 			default:
 				$model = 'Post';
-				$method = 'getPosts';
-				return $this->datas = $model::$method(null);
+				$method = 'getAll';
+				return $this->datas = $model::$method($option);
 				break;
 		}
 	}

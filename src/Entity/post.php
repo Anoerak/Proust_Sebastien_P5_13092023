@@ -52,19 +52,19 @@ class Post
 		$this->updated_at = $updated_at;
 	}
 
-	public static function getPosts($filter)
+	public static function getAll($filter)
 	{
 		$posts = array();
 		$repo = new MainRepository("post");
 		// We check if the request returned at least one result
-		if ($repo->getAll($filter) > 0) {
+		if ($repo->getAll('category', $filter, null) > 0) {
 			// We create a new Post object for each post
-			foreach ($repo->getAll($filter) as $post) {
+			foreach ($repo->getAll('category', $filter, null) as $post) {
 				$posts[] = new Post($post['id'], $post['author_id'], '', $post['category'], $post['picture'], $post['title'], $post['description'], $post['content'], $post['keywords'], $post['site_link'], $post['github_link'], $post['created_at'], $post['updated_at']);
 			}
 			// We get the author's username for each post
 			foreach ($posts as $post) {
-				$post->author_username = User::getUser($post->author_id)->username;
+				$post->author_username = User::getOne($post->author_id)->username;
 				// We replace the date value with the format we want
 				$post->created_at = Tools::formatDate($post->created_at);
 				$post->updated_at = Tools::formatDate($post->updated_at);
@@ -77,14 +77,14 @@ class Post
 		}
 	}
 
-	public static function getPost($id)
+	public static function getOne(int $id)
 	{
 		$repo = new MainRepository("post");
 		// We check if the request returned at least one result
 		if ($repo->getOne($id) > 0) {
 			$post = $repo->getOne($id);
 			// We get the author's username
-			$author = User::getUser($post['author_id']);
+			$author = User::getOne($post['author_id']);
 			// We replace the date value with the format we want
 			$post['created_at'] = Tools::formatDate($post['created_at']);
 			if ($post['updated_at'] !== null) {
@@ -100,7 +100,7 @@ class Post
 		}
 	}
 
-	public static function addPost()
+	public static function create()
 	{
 		$post = array(
 			'author_id' => $_POST['author_id'],
@@ -129,7 +129,7 @@ class Post
 
 		// We add the post to the database
 		$repo = new MainRepository("post");
-		$repo->add($post);
+		$repo->create($post);
 
 		// We check if everything worked out fine
 		if ($repo->getLastInsertedId() > 0) {
@@ -142,7 +142,7 @@ class Post
 		}
 	}
 
-	public static function updatePost()
+	public static function update()
 	{
 		$newPicture = '';
 
@@ -161,7 +161,7 @@ class Post
 		}
 
 		// We get the original values from the database
-		$origin = Post::getPost($_POST['post_id']);
+		$origin = Post::getOne($_POST['post_id']);
 
 		// we create an array with the values to update
 		$update = array(
@@ -205,7 +205,7 @@ class Post
 
 
 
-	public static function deletePost($id)
+	public static function delete(int $id)
 	{
 		$repo = new MainRepository("post", $id);
 		$repo->delete($id);

@@ -2,10 +2,10 @@
 
 require_once './templates/view.php';
 require_once './src/Controller/ModelConstructor.php';
+require_once './src/Security/userConnection.php';
 require_once './src/Entity/post.php';
 require_once './src/Entity/comment.php';
 require_once './src/Entity/user.php';
-require_once './src/Entity/userConnection.php';
 require_once './src/Entity/newsletter.php';
 
 
@@ -24,31 +24,31 @@ class ControllerConstructor extends ModelConstructorController
 
 	private function setDefaultTitleAndTemplatePath($page)
 	{
-		$this->setTitleAndTemplatePath(ucfirst($page), $page . '/' . $page);
+		$this->setTitleAndTemplatePath(ucfirst((string)$page ?? ''), $page . '/' . $page);
 	}
 
 	private function handlePostAction($action, $option, $page)
 	{
 		switch ($action) {
 			case 'get':
-				$this->setTitleAndTemplatePath(ucfirst($option) . ' a ' . $page, $page . '/' . $page . ucfirst($option));
+				$this->setTitleAndTemplatePath(ucfirst((string)$option ?? '') . ' a ' . $page, $page . '/' . $page . ucfirst((string)$option ?? ''));
 				break;
-			case 'add':
-				$titleAppendix = 'a ' . ($option === 'comment' ? '' : $page);
-				$templatePathAppendix = $page . '/' . ($option === 'comment' ? $page : $page . 'Add');
-				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
+			case 'getOne':
+				$this->setTitleAndTemplatePath(ucfirst((string)$option ?? '') . ' a ' . $page, $page . '/' . $page . ucfirst((string)$option ?? ''));
 				break;
-			case 'new':
-				$this->setTitleAndTemplatePath(ucfirst($action) . ' a ' . $page, $page . '/' . $page . 'Add');
+			case 'create':
+				$titleAppendix = 'a ' . ($option === 'comment' ? 'New Comment' : $page);
+				$templatePathAppendix = $page . '/' . ($option === 'comment' ? $page . 'View' : $page . 'Add');
+				$this->setTitleAndTemplatePath(ucfirst((string)$action ?? '') . $titleAppendix, $templatePathAppendix);
 				break;
 			case 'update':
 				$titleAppendix = ' a ' . $page;
-				$templatePathAppendix = $page . '/' . $page . ucfirst($action);
+				$templatePathAppendix = $page . '/' . $page . ucfirst((string)$action ?? '');
 				if ($option === 'comment') {
 					$titleAppendix = 'a ' . $option;
 					$templatePathAppendix = $page . '/' . $page;
 				}
-				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
+				$this->setTitleAndTemplatePath(ucfirst((string)$action ?? '') . $titleAppendix, $templatePathAppendix);
 				break;
 			case 'delete':
 				$titleAppendix = ' a ' . $page;
@@ -57,7 +57,7 @@ class ControllerConstructor extends ModelConstructorController
 					$titleAppendix = 'a ' . $option;
 					$templatePathAppendix = $page . '/' . $page;
 				}
-				$this->setTitleAndTemplatePath(ucfirst($action) . $titleAppendix, $templatePathAppendix);
+				$this->setTitleAndTemplatePath(ucfirst((string)$action ?? '') . $titleAppendix, $templatePathAppendix);
 				break;
 		}
 	}
@@ -78,7 +78,7 @@ class ControllerConstructor extends ModelConstructorController
 					}
 				}
 				switch ($action) {
-					case 'get':
+					case 'getOne':
 					case 'update':
 					case 'delete':
 						$this->setDefaultTitleAndTemplatePath($page);

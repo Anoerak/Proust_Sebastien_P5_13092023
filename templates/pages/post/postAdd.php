@@ -3,7 +3,7 @@
 	<div class="top"></div>
 	<h1>Create a new Post</h1>
 	<div class="add__post__form">
-		<form action="index.php?page=post&action=add&option=new" method="post" enctype="multipart/form-data">
+		<form action="index.php?page=post&action=create" method="post" enctype="multipart/form-data">
 			<div class="form__group">
 				<div class="input__container">
 					<input type="hidden" name="author_id" id="author_id" value="<?= $_SESSION['user_id'] ?>" required>
