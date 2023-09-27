@@ -1,6 +1,6 @@
 <?php
 
-require_once "./src/Services/dbConnect.php";
+require_once "./src/Services/dbManager.php";
 
 class Tools
 {
@@ -116,8 +116,14 @@ class Tools
 			// We return true
 			return true;
 		} else {
-			// We return false
-			return false;
+			// If minor than 18 years old, we throw an error message
+			if ($birthday > date('Y-m-d', strtotime('-18 years'))) {
+				throw new \Exception("You must be at least 18 years old to register.");
+				return false;
+			} elseif ($birthday < date('Y-m-d', strtotime('-100 years'))) {
+				throw new \Exception("You must be less than 100 years old to register.");
+				return false;
+			}
 		}
 	}
 	/* #EndRegion */

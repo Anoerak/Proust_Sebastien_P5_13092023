@@ -33,6 +33,15 @@ class MainRepository extends dbManager
 		return $result;
 	}
 
+	public function getOneBy($datas)
+	{
+		$this->data = $datas;
+		$query = $this->db->prepare("SELECT * FROM $this->table WHERE " . implode(' = ?, ', array_keys($this->data)) . " = ?");
+		$query->execute(array_values($this->data));
+		$result = $query->fetch();
+		return $result;
+	}
+
 	public function getAll($column, $columnValue, $sortingOrder)
 	{
 		$this->column = $column;
@@ -65,50 +74,18 @@ class MainRepository extends dbManager
 	public function update($datas)
 	{
 		$this->data = $datas;
-		$query = $this->db->prepare("UPDATE $this->table SET " . implode(' = ?, ', array_keys($this->data)) . " = ? WHERE id = $this->id");
-		$query->execute(array_values($this->data));
+		if ($this->column === null) {
+			$query = $this->db->prepare("UPDATE $this->table SET " . implode(' = ?, ', array_keys($this->data)) . " = ? WHERE id = $this->id");
+			$query->execute(array_values($this->data));
+		} else {
+			$query = $this->db->prepare("UPDATE $this->table SET " . implode(' = ?, ', array_keys($this->data)) . " = ? WHERE $this->column = $this->columnValue");
+			$query->execute(array_values($this->data));
+		}
 	}
 
 	public function delete()
 	{
 		$query = $this->db->prepare("DELETE FROM $this->table WHERE id = :id");
-		$query->execute(['id' => $this->id]);
-	}
-
-	public function getPrivilege($id)
-	{
-		$this->id = $id;
-		$query = $this->db->prepare("SELECT privilege FROM $this->table WHERE user_id = :id");
-		$query->execute(['id' => $this->id]);
-		$result = $query->fetch();
-		return $result;
-	}
-
-	public function publishComment($datas)
-	{
-		$this->data = $datas;
-		$query = $this->db->prepare("UPDATE $this->table SET " . implode(' = ?, ', array_keys($this->data)) . " = ? WHERE id = $this->id");
-		$query->execute(array_values($this->data));
-	}
-
-	public function unpublishComment($datas)
-	{
-		$this->data = $datas;
-		$query = $this->db->prepare("UPDATE $this->table SET " . implode(' = ?, ', array_keys($this->data)) . " = ? WHERE id = $this->id");
-		$query->execute(array_values($this->data));
-	}
-
-	public function subscribe($id)
-	{
-		$this->id = $id;
-		$query = $this->db->prepare("UPDATE $this->table SET subscribed = 1 WHERE id = :id");
-		$query->execute(['id' => $this->id]);
-	}
-
-	public function unsubscribe($id)
-	{
-		$this->id = $id;
-		$query = $this->db->prepare("UPDATE $this->table SET subscribed = 0 WHERE id = :id");
 		$query->execute(['id' => $this->id]);
 	}
 

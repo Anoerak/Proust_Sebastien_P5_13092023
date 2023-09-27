@@ -69,22 +69,36 @@ section.login__container .login__form:hover {
 	}
 }
 
+@keyframes fromCenterAndScale {
+	0% {
+		top: 45%;
+		left: 42.5%;
+		transform: scale(0);
+	}
+
+
+	100% {
+		transform: scale(1);
+	}
+}
+
 .container {
-	animation: spin 20s infinite linear;
+	animation: spin 20s infinite linear 1s;
 	height: 310px;
 	position: relative;
 	width: 344px;
 }
 
 .icon {
-	animation: spin 20s infinite linear reverse;
+	animation: spin 20s infinite linear 1s reverse, fromCenterAndScale 1s ease-in-out;
 	background-position: center;
 	background-size: cover;
 	position: absolute;
 }
 
 .icon__central {
-	animation: imageSwitch 20s infinite linear, spin 20s infinite linear reverse;
+	z-index: 10;
+	animation: imageSwitch 20s infinite linear, spin 20s infinite linear 1s reverse;
 	background-position: center;
 	background-size: cover;
 	border-radius: 50%;

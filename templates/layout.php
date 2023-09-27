@@ -10,13 +10,13 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../src/lib/style/style.css">
 	<link rel="icon" type="image/x-icon" href="../public/favicon.ico">
 	<script src="https://kit.fontawesome.com/89ed478db9.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="../src/lib/style/style.css">
-	<script defer src="../src/lib/script/script.js" type="module"></script>
+	<script src="../src/lib/script/script.js" type="module"></script>
 
 	<?php
-	require_once __DIR__ . '/../config/config.local.php';
+	require_once __DIR__ . '../../config/config.local.php';
 	if (isset($_GET['page']) && array_key_exists($_GET['page'], RESOURCES)) {
 		foreach (RESOURCES[$_GET['page']] as $resource) {
 			echo $resource;

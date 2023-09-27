@@ -142,7 +142,7 @@ class Comment
 	public static function publish(int $id)
 	{
 		$repo = new MainRepository('comment', $id);
-		$repo->publishComment([
+		$repo->update([
 			'validation_status' => 'published',
 		]);
 		if (!$repo) {
@@ -156,7 +156,7 @@ class Comment
 	public static function unpublish(int $id)
 	{
 		$repo = new MainRepository('comment', $id);
-		$repo->unpublishComment([
+		$repo->update([
 			'validation_status' => 'unpublished',
 		]);
 		if (!$repo) {

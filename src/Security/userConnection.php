@@ -1,10 +1,10 @@
 <?php
 
-require_once './src/Services/dbConnect.php';
+require_once './src/Repository/MainRepository.php';
 require_once './src/lib/tools/Tools.php';
 
 
-class UserConnection extends databaseConnect
+class UserConnection
 {
 	public int $id;
 	public string $username;
@@ -56,9 +56,12 @@ class UserConnection extends databaseConnect
 		$password = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
 		// Check if the username is already taken
-		$sql = parent::executeRequest("SELECT * FROM credentials WHERE username = ?", array($username));
-		if ($sql->rowCount() > 0) {
-			$user = $sql->fetch();
+		$repo = new MainRepository("credentials");
+		$sql = $repo->getOneBy([
+			"username" => $username
+		]);
+		if ($sql) {
+			$user = $sql;
 			// Check if the password is correct
 			if (password_verify($password, $user['password'])) {
 				self::updateSession($user['user_id']);

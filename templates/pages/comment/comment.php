@@ -34,7 +34,7 @@
 		<p class="comment__date">Edited on <?= $comment->updated_at ?></p>
 		<?php endif; ?>
 		<!-- If the logged user is the comment author, an "edit" button is displayed  -->
-		<?php if (isset($_SESSION['logged_user']) && $_SESSION['user_id'] == $comment->user_id && $comment->validation_status === 'published' || 'pending' || 'unpublished' && $comment->id == $_REQUEST['comment_id']) : ?>
+		<?php if (isset($_SESSION['logged_user']) && $_SESSION['user_id'] == $comment->user_id && $comment->validation_status === 'published' && $comment->id == $_REQUEST['comment_id']) : ?>
 		<form
 			action="index.php?page=post&action=update&option=comment&id=<?= $comment->id ?>&post_id=<?= $_GET['id'] ?>"
 			method="post" class="edited__comment">
@@ -79,7 +79,7 @@
 				<p class="comment__date">Edited on <?= $comment->updated_at ?></p>
 				<?php endif; ?>
 				<!-- If the logged user is the comment author, an "edit" button is displayed  -->
-				<?php if (isset($_SESSION['logged_user']) && $_SESSION['user_id'] == $comment->user_id && $comment->validation_status === 'published' || 'pending' || 'unpublished') : ?>
+				<?php if (isset($_SESSION['logged_user']) && $_SESSION['user_id'] == $comment->user_id && $comment->validation_status === 'published') : ?>
 				<button class="main__button__light"
 					onclick="window.location.href='index.php?page=post&action=getOne&option=view&id=<?= $_GET['id'] ?>&comment_id=<?= $comment->id ?>#<?= $comment->id ?>'">Edit</button>
 				<?php endif; ?>
