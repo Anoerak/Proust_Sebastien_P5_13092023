@@ -1,6 +1,6 @@
 /* Responsive for smartphone in portrait mode */
 
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 
 	body header {
 		z-index: 10;
@@ -91,9 +91,25 @@
 	}
 }
 
+@media screen and (max-width: 844px) and (orientation: landscape) {
+
+	body header .login_up__section a,
+	body header .logged_in__section a {
+		padding: 0;
+
+	}
+
+	body header .login_up__section a button,
+	body header .logged_in__section a button {
+		width: 5rem;
+		font-size: .75rem;
+	}
+}
+
+
 /* Responsive for tablet in portrait mode */
 
-@media screen and (width < 1024px) and (orientation: portrait) {
+@media screen and (max-width: 1024px) and (orientation: portrait) {
 	body header nav ul li a {
 		font-size: 1rem;
 	}

@@ -1,4 +1,4 @@
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 	body section.contact__container .contact__form {
 		width: calc(100% - 1rem);
 	}
@@ -9,5 +9,12 @@
 
 	body section.contact__container .contact__form form .input__container {
 		width: 80%;
+	}
+}
+
+@media screen and (max-width: 844px) and (orientation: landscape) {
+	body section.contact__container .contact__form {
+		width: 60%;
+		margin: 2rem auto;
 	}
 }

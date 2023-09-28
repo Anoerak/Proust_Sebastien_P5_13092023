@@ -1,5 +1,16 @@
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 	body section.loading__container .loading.loading_message {
 		width: calc(100% - 6rem);
+	}
+}
+
+@media screen and (max-width: 844px) and (orientation: landscape) {
+	body section.loading__container {
+		min-height: 100vh;
+	}
+
+	body section.loading__container .loading.loading_message {
+		width: 60%;
+		margin: 4rem auto;
 	}
 }

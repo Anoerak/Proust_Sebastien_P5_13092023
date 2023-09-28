@@ -1,4 +1,4 @@
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 	body section.error__container .alert.alert-danger {
 		width: calc(100% - 6rem);
 	}

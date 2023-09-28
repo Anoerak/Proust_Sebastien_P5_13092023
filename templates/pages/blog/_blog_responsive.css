@@ -1,4 +1,4 @@
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 	body section.project__container .main__container {
 		width: 90%;
 	}
@@ -17,8 +17,26 @@
 	}
 }
 
+@media screen and (max-width: 844px) and (orientation: landscape) {
+	body section.project__container .main__container {
+		width: 90%;
+	}
 
-@media screen and (width < 1120px) and (orientation: portrait) {
+	body section.project__container .main__container article div.card:nth-child(1),
+	body section.project__container .main__container article div.card:nth-child(2),
+	body section.project__container .main__container article div.card:nth-child(3),
+	body section.project__container .main__container article div.card:nth-child(4),
+	body section.project__container .main__container article div.card:nth-child(5),
+	body section.project__container .main__container article div.card:nth-child(6),
+	body section.project__container .main__container article div.card:nth-child(7),
+	body section.project__container .main__container article div.card:nth-child(8) {
+		width: 40% !important;
+		background-size: cover;
+		background-position: top left;
+	}
+}
+
+@media screen and (max-width: 1120px) and (orientation: portrait) {
 	body section.project__container .main__container {
 		width: 90%;
 	}

@@ -41,6 +41,7 @@ section.hero__container .cards__container {
 
 /* #Region Profile Card */
 section.hero__container .profile__card__main__container {
+	position: relative;
 	/*Display stuff*/
 	display: flex;
 	flex-direction: column;
@@ -58,6 +59,7 @@ section.hero__container .profile__card__main__container {
 	/*Manipulations stuff*/
 	transition: all .3s ease-in-out;
 	/*Miscellaneous*/
+	-webkit-backdrop-filter: blur(15px) saturate(86%);
 	backdrop-filter: blur(15px) saturate(86%);
 	box-shadow: 17px 20px 40px rgba(0, 0, 0, .21);
 }
@@ -199,6 +201,7 @@ section.hero__container .card__techno__container {
 	border-radius: 1rem;
 	background-color: hsla(0, 0%, 100%, .3);
 	/*Miscellaneous*/
+	-webkit-backdrop-filter: blur(15px) saturate(86%);
 	backdrop-filter: blur(15px) saturate(86%);
 	box-shadow: 17px 20px 40px rgba(0, 0, 0, .21);
 }
@@ -240,6 +243,7 @@ section.hero__container .card__techno__container .techno span {
 	/*Manipulations stuff*/
 	transition: all .3s ease-in-out;
 	/*Miscellaneous*/
+	-webkit-backdrop-filter: blur(15px) saturate(86%);
 	backdrop-filter: blur(15px) saturate(86%);
 }
 

@@ -1,4 +1,4 @@
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 	body section.blog__rules {
 		width: 90%;
 	}

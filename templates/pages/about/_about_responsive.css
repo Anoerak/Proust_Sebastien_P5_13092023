@@ -1,4 +1,4 @@
-@media screen and (width < 776px) and (orientation: portrait) {
+@media screen and (max-width: 776px) and (orientation: portrait) {
 
 	body section.about__container main .first_row,
 	body section.about__container main .second_row,
@@ -43,8 +43,78 @@
 
 }
 
+@media screen and (max-width: 844px) and (orientation: landscape) {
 
-@media screen and (width < 1120px) and (orientation: portrait) {
+	body section.about__container main .first_row {
+		flex-wrap: wrap;
+	}
+
+	body section.about__container main .first_row .card:nth-child(1) {
+		order: 1;
+		width: 45.5%;
+		height: 450px;
+	}
+
+	body section.about__container main .first_row .card:nth-child(2) {
+		order: 3;
+		width: 100%;
+		height: 225px;
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) {
+		order: 2;
+		width: 45.5%;
+		height: calc(450px - 2rem);
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) h2 {
+		font-size: 1.25rem;
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) h3 {
+		font-size: 1rem;
+	}
+
+	body section.about__container main .first_row .card:nth-child(3) P {
+		font-size: .9rem;
+	}
+
+	body section.about__container main .second_row {
+		flex-wrap: wrap;
+	}
+
+	body section.about__container main .second_row .card:nth-child(1) {
+		order: 2;
+		width: 45%;
+	}
+
+	body section.about__container main .second_row .card:nth-child(1) .slide {
+		background-size: cover;
+	}
+
+	body section.about__container main .second_row .card:nth-child(2) {
+		order: 1;
+		width: 100%;
+		height: 450px;
+		margin: 0;
+		display: block;
+	}
+
+	body section.about__container main .second_row .card:nth-child(3) {
+		order: 3;
+		width: 45%;
+	}
+
+	body section.about__container main .second_row .card:nth-child(2) .title {
+		margin: 0;
+	}
+
+	body section.about__container main .third__row img {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1120px) and (orientation: portrait) {
 
 	/* #Region First Row */
 	body section.about__container main .first_row {

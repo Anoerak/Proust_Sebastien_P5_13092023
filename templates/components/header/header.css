@@ -2,6 +2,7 @@
 
 header {
 	height: 4rem;
+	-webkit-backdrop-filter: blur(15px) saturate(86%);
 	backdrop-filter: blur(15px) saturate(86%);
 	background-color: hsla(0, 0%, 100%, .2);
 	/*Display stuff*/
@@ -83,6 +84,7 @@ header nav ul {
 	justify-content: center;
 	/*Box model stuff*/
 	border-radius: 10rem;
+	-webkit-backdrop-filter: blur(15px) saturate(86%);
 	backdrop-filter: blur(15px) saturate(86%);
 	background-color: hsla(0, 0%, 100%, .25);
 	/*Miscellaneous*/

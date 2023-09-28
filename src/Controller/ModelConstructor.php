@@ -16,6 +16,7 @@ abstract class ModelConstructorController
 
 	// Define a map for action to method
 	private $actionToMethod = [
+		'get' => 'getAll',
 		'getOne' => 'getOne',
 		'create' => 'create',
 		'update' => 'update',
@@ -47,6 +48,8 @@ abstract class ModelConstructorController
 			} else if ($page === 'userProfile' && ($action === 'getOne' || $action === 'update' || $action === 'delete') && $option === 'user') {
 				$this->datas = User::$method($id);
 				UserConnection::updateSession($id);
+			} else if ($page === 'post' && $action === 'get' && $option === 'add') { // new case for 'add' action
+				$this->datas = $model::$method($id); // assuming 'add' method requires 'id'
 			} else {
 				$this->datas = $model::$method($id);
 				if ($page === 'post' && $action === 'getOne') {
@@ -59,6 +62,7 @@ abstract class ModelConstructorController
 		// Default case
 		return $this->datas = Post::getAll($option);
 	}
+
 
 
 
