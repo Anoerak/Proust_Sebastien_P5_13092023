@@ -48,7 +48,7 @@ class MainRepository extends DbManager
 		$this->columnValue = $columnValue;
 		$this->sortingOrder = $sortingOrder;
 		if ($this->columnValue !== null && $this->columnValue !== "all") {
-			if ($this->sortingOrder != null) {
+			if ($this->sortingOrder !== null) {
 				$query = $this->db->prepare("SELECT * FROM $this->table WHERE $this->column = $this->columnValue ORDER BY created_at DESC");
 			} else {
 				$query = $this->db->prepare("SELECT * FROM $this->table WHERE $this->column = $this->columnValue ORDER BY created_at $this->sortingOrder");
