@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '../../Services/dbManager.php';
 
-class MainRepository extends dbManager
+class MainRepository extends DbManager
 {
 
 	protected $table;
@@ -47,7 +47,7 @@ class MainRepository extends dbManager
 		$this->column = $column;
 		$this->columnValue = $columnValue;
 		$this->sortingOrder = $sortingOrder;
-		if ($this->columnValue != null && $this->columnValue != "all") {
+		if ($this->columnValue !== null && $this->columnValue !== "all") {
 			if ($this->sortingOrder != null) {
 				$query = $this->db->prepare("SELECT * FROM $this->table WHERE $this->column = $this->columnValue ORDER BY created_at DESC");
 			} else {

@@ -119,11 +119,9 @@ class Post
 			if (!$checkPicture) {
 				throw new Exception('The picture format is not valid.', 400);
 			} else {
-				// $picture = $checkPicture;
 				$post['picture'] = $checkPicture;
 			}
 		} else {
-			// $picture = null;
 			$post['picture'] = null;
 		}
 
@@ -152,11 +150,9 @@ class Post
 			if (!$checkPicture) {
 				throw new Exception('The picture format is not valid.', 400);
 			} else {
-				// $picture = $checkPicture;
 				$newPicture = $checkPicture;
 			}
 		} else {
-			// $picture = null;
 			$newPicture = null;
 		}
 
@@ -211,7 +207,7 @@ class Post
 		$repo->delete($id);
 
 		// We check if everything worked out fine
-		if ($repo->getOne($id) == 0 || $repo->getOne($id) == null || $repo->getOne($id) == "" || $repo->getOne($id) == false) {
+		if ($repo->getOne($id) === 0 || $repo->getOne($id) === null || $repo->getOne($id) === "" || $repo->getOne($id) === false) {
 			// We return a success message
 			header('Refresh: 1;URL=./index.php?page=blog&option=all');
 			throw new Exception('Your post has been successfully deleted.', 200);

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../config/config.local.php';
 
-abstract class dbManager
+abstract class DbManager
 {
 	// PDO Object to connect to the database
 	private static $db;

@@ -134,7 +134,6 @@ class User
 
 			// We check the password and email and get a hashed password and sanitize email with the UserManager::checkPasswordAndEmail() method
 			if (!UserManager::checkPasswordAndEmail($password, $passwordCheck, $email)) {
-				var_dump(UserManager::checkPasswordAndEmail($password, $passwordCheck, $email));
 				return false;
 			} else {
 				$email = UserManager::checkPasswordAndEmail($password, $passwordCheck, $email)['email'];

@@ -1,4 +1,4 @@
-import { MAPBOX_API_KEY } from '../../config/config.local.js';
+import { MAPBOX_API_KEY } from '../../../config/config.local.js';
 // Uncomment this line to use the production API key:
 // import { MAPBOX_API_KEY } from '../../config/config.js';
 
