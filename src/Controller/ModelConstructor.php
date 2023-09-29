@@ -1,5 +1,4 @@
 <?php
-
 abstract class ModelConstructorController
 {
 	private $datas;
@@ -27,12 +26,15 @@ abstract class ModelConstructorController
 		'logOut' => 'logOut',
 		'subscribe' => 'subscribe',
 		'unsubscribe' => 'unsubscribe',
+		'send' => 'send',
 	];
 
 	protected function buildModelMethod($page, $action = null, $option = null, $id = null)
 	{
 		$model = $this->getModel($page, $option);
 		$method = $this->getMethod($action, $option);
+
+		// throw new \Exception("Model: $model, Method: $method, Action: $action", 200);
 
 		if ($model && $method) {
 			if (($action === 'create' || $action === 'update' || $action === 'delete') && $option === 'comment') {
@@ -57,6 +59,10 @@ abstract class ModelConstructorController
 				}
 			}
 			return $this->datas;
+		} else if (!$model) {
+			if ($action === 'send') {
+				$this->datas = Mailer::$method();
+			}
 		}
 
 		// Default case

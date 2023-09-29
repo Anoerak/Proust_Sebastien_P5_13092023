@@ -3,17 +3,19 @@
 require_once './templates/view.php';
 require_once './src/Controller/ModelConstructor.php';
 require_once './src/Security/userConnection.php';
+require_once './src/Services/mailer.php';
 require_once './src/Entity/post.php';
 require_once './src/Entity/comment.php';
 require_once './src/Entity/user.php';
 require_once './src/Entity/newsletter.php';
 
 
+
 class ControllerConstructor extends ModelConstructorController
 {
 	private $view;
 	private $datas;
-	private $title = 'My Awesome Blog !! - ';
+	private $title = 'I am Anørak - ';
 	private $templatePath;
 
 	private function setTitleAndTemplatePath($titleAppendix, $templatePathAppendix)
