@@ -32,6 +32,20 @@ inspired by Apple IOS and iPadOS. Here is a list of the API used in this project
 4. Import the `src/lib/database/myblog.sql` file in your database.
 5. Run `php -S localhost:8000` to start the server.
 
+## Usage
+
+1. Go to `http://localhost:8000/` to access the website.
+2. Go to `http://localhost:8080/index.php?page=login` to access the login panel.
+3. To connect as an admin, use the following credentials:
+
+-   `Username`: admin
+-   `Password`: #123Azerty
+
+4. To connect as a user, use the following credentials:
+
+-   `Username`: user
+-   `Password`: #123Azerty
+
 ## Features
 
 -   [x] Home

@@ -43,8 +43,8 @@
 				id="comment"><?= $comment->content ?></textarea>
 			<div class="validation__area">
 				<input class="main__button" type="submit" value="Submit">
-				<a href="index.php?page=post&action=get&option=view&id=<?=
-																					$_GET['id'] ?>#<?= $_REQUEST['comment_id'] ?>" class="cancel__button">Cancel</a>
+				<a href="index.php?page=post&action=getOne&option=view&id=<?=
+																						$_GET['id'] ?>#<?= $_REQUEST['comment_id'] ?>" class="cancel__button">Cancel</a>
 			</div>
 		</form>
 		<?php elseif (isset($_SESSION['logged_user']) && $_SESSION['user_id'] == $comment->user_id && $comment->validation_status === 'published' && $comment->id !== $_REQUEST['comment_id']) : ?>
@@ -78,10 +78,12 @@
 				<?php if ($comment->updated_at !== null) : ?>
 				<p class="comment__date">Edited on <?= $comment->updated_at ?></p>
 				<?php endif; ?>
-				<!-- If the logged user is the comment author, an "edit" button is displayed  -->
+				<!-- If the logged user is the comment author, an "edit" and "delete" button is displayed  -->
 				<?php if (isset($_SESSION['logged_user']) && $_SESSION['user_id'] == $comment->user_id && $comment->validation_status === 'published') : ?>
 				<button class="main__button__light"
 					onclick="window.location.href='index.php?page=post&action=getOne&option=view&id=<?= $_GET['id'] ?>&comment_id=<?= $comment->id ?>#<?= $comment->id ?>'">Edit</button>
+				<button class="delete__button"
+					onclick="window.location.href='index.php?page=post&action=delete&option=comment&id=<?= $comment->id ?>&post_id=<?= $_GET['id'] ?>'">Delete</button>
 				<?php endif; ?>
 			</div>
 			<!-- If you're an admin, we display buttons to validate or remove comments -->
