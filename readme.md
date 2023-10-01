@@ -30,7 +30,7 @@ inspired by Apple IOS and iPadOS. Here is a list of the API used in this project
 -   `DB_PASSWORD`
 
 4. Import the `src/lib/database/myblog.sql` file in your database.
-5. Run `php -S localhost:8000 -t public` to start the server.
+5. Run `php -S localhost:8000` to start the server.
 
 ## Features
 

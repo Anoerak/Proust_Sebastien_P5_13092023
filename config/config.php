@@ -1,8 +1,6 @@
 <?php
 
 // We define our database connection constants
-// WINDOWS will use define('DB_HOST', 'your-db-urk'); and define('DB_PORT', 'port');
-// MAC
 define('DB_HOST', 'your-db-urk');
 define('DB_PORT', 'port');
 define('DB_NAME', 'db-name');
@@ -27,7 +25,12 @@ define(
 		'about' => [
 			'<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />',
 			'<link rel="stylesheet" href="../templates/pages/about/about.css">',
-			'<script defer src="../templates/pages/about/about.js" type="module"></script>',
+			'<script 
+				defer 
+				src="../templates/pages/about/about.js" 
+				type="module"
+			>
+			</script>',
 			'<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>',
 			'<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>',
 			'<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/ModifiersPlugin.min.js"></script>',

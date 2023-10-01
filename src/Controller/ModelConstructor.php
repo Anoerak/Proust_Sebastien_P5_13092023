@@ -34,8 +34,6 @@ abstract class ModelConstructorController
 		$model = $this->getModel($page, $option);
 		$method = $this->getMethod($action, $option);
 
-		// throw new \Exception("Model: $model, Method: $method, Action: $action", 200);
-
 		if ($model && $method) {
 			if (($action === 'create' || $action === 'update' || $action === 'delete') && $option === 'comment') {
 				$this->datas = Comment::$method($id);
