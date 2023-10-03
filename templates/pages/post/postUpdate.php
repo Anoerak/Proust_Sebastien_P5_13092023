@@ -1,5 +1,5 @@
 <?php session_start();
-if ($_SESSION['privileges'] != 'admin') {
+if ($_SESSION['privileges']['privilege'] !== 'admin') {
 	throw new Exception('You are not allowed to access this page.');
 }
 ?>
