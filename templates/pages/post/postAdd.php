@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();
+// If not admin, throw error
+if ($_SESSION['user_role'] != 'admin') {
+	throw new Exception('You are not allowed to access this page.');
+	header('Refresh:5; url=index.php?page=blog&option=all');
+	exit;
+}
+?>
 <section class="add__post">
 	<div class="top"></div>
 	<h1>Create a new Post</h1>
