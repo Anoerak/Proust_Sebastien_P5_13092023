@@ -1,8 +1,6 @@
 <?php session_start();
-if ($_SESSION['user_role'] != 'admin') {
+if ($_SESSION['privileges'] != 'admin') {
 	throw new Exception('You are not allowed to access this page.');
-	header('Refresh:5; url=index.php');
-	exit;
 }
 ?>
 <section class="update__post">

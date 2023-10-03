@@ -1,8 +1,6 @@
 <?php session_start();
-if ($_SESSION['user_role'] != 'admin') {
+if ($_SESSION['privileges'] != 'admin') {
 	throw new Exception('You are not allowed to access this page.');
-	header('Refresh:5; url=index.php');
-	exit;
 }
 ?>
 <section class="add__post">
@@ -22,8 +20,7 @@ if ($_SESSION['user_role'] != 'admin') {
 
 				<div class="input__container">
 					<label for="description">Description</label>
-					<input type="text" class="update__description__input" id="description" name="description"
-						placeholder=" " required>
+					<input type="text" class="update__description__input" id="description" name="description" placeholder=" " required>
 				</div>
 
 				<div class="input__container">
@@ -39,32 +36,27 @@ if ($_SESSION['user_role'] != 'admin') {
 
 				<div class="input__container img">
 					<label for="image">Image</label>
-					<input type="file" class="add__picture__input" id="post_picture" name="post_picture"
-						accept=".jpeg, .jpg, .png, .gif, .webp">
+					<input type="file" class="add__picture__input" id="post_picture" name="post_picture" accept=".jpeg, .jpg, .png, .gif, .webp">
 				</div>
 
 				<div class="input__container">
 					<label for="content">Content</label>
-					<textarea class="form-control" id="add__content_textarea" name="content" rows="10" cols="80"
-						required></textarea>
+					<textarea class="form-control" id="add__content_textarea" name="content" rows="10" cols="80" required></textarea>
 				</div>
 
 				<div class="input__container">
 					<label for="keywords">Keywords</label>
-					<input type="text" class="update__keywords__input" id="keywords" name="keywords" placeholder=" "
-						required>
+					<input type="text" class="update__keywords__input" id="keywords" name="keywords" placeholder=" " required>
 				</div>
 
 				<div class="input__container">
 					<label for="siteLink">site Link</label>
-					<input type="text" class="update__siteLink__input" id="siteLink" name="siteLink" placeholder=" "
-						required>
+					<input type="text" class="update__siteLink__input" id="siteLink" name="siteLink" placeholder=" " required>
 				</div>
 
 				<div class="input__container">
 					<label for="githubLink">github Link</label>
-					<input type="text" class="update__githubLink__input" id="githubLink" name="githubLink"
-						placeholder=" " required>
+					<input type="text" class="update__githubLink__input" id="githubLink" name="githubLink" placeholder=" " required>
 				</div>
 
 				<div class="add__validation__area">
