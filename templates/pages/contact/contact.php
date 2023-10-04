@@ -29,6 +29,8 @@
 				<span>Subject</span>
 			</div>
 
+			<input type='hidden' name='honeypot' id='honeypot' />
+
 			<div class="input__container">
 				<label for="message">Message</label>
 				<textarea name="contactMessage" placeholder=" " cols="48" rows="8" required></textarea>

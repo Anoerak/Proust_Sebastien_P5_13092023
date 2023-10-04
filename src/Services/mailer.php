@@ -15,8 +15,14 @@ class Mailer
 		$contactEmail = $_POST['contactEmail'];
 		$contactSubject = $_POST['contactSubject'];
 		$contactMessage = $_POST['contactMessage'];
+		$honeypot = $_POST['honeypot'];
 
 
+		// We check if the honeypot is empty
+		if (!empty($honeypot)) {
+			// We return an error message
+			throw new \Exception("You are a bot.", 400);
+		}
 		// We check if the email is valid
 		if (Tools::checkEmail($contactEmail)) {
 			// We check if the name is not empty
